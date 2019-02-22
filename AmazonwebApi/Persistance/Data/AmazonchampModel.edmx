@@ -1,0 +1,606 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="amazonchampModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="AddCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="category" Type="nvarchar" Mode="In" />
+          <Parameter Name="parentId" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="ChangePassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="OldPassword" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="NewPassword" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="ConfirmPassword" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="ForgetPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserName" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="GetAbout" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetKeywords" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Keyword" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="CategoryId" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="GetSubscriptionPendingDays" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="GetSubscriptionPlan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetTemplates" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetUserAbout" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="GetuserAuthorize" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="userName" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="GetUserData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="GetUserProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="GetUserSubscriptionPlan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="GetUserTemplates" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="userName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="LoginAuthenticate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Username" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+          <Parameter Name="RecordTime" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="ProductCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ProductKeywords" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="bigint" Mode="In" />
+          <Parameter Name="Keyword" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="ExactMatchSearchVolume" Type="bigint" Mode="In" />
+          <Parameter Name="BroadMatchSearchVolume" Type="bigint" Mode="In" />
+          <Parameter Name="CategoryId" Type="bigint" Mode="In" />
+          <Parameter Name="RecommendedGiveaway" Type="bigint" Mode="In" />
+          <Parameter Name="HSABid" Type="bigint" Mode="In" />
+          <Parameter Name="ExactPPBid" Type="bigint" Mode="In" />
+          <Parameter Name="BroadPPCBid" Type="bigint" Mode="In" />
+          <Parameter Name="EaseToRank" Type="bigint" Mode="In" />
+          <Parameter Name="RelevancyScore" Type="bigint" Mode="In" />
+          <Parameter Name="operation" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="RagisterUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Username" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email" Type="nvarchar" Mode="In" />
+          <Parameter Name="RegisterationDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="SaveProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ASIN" Type="nvarchar" Mode="In" />
+          <Parameter Name="userId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="isFeatured" Type="bit" Mode="In" />
+          <Parameter Name="categoryId" Type="bigint" Mode="In" />
+          <Parameter Name="operation" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SaveUserAbout" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AboutTitle" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="AboutSummary" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="Address" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="PhoneNo" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Twitter" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Facebook" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="LinkedIn" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="LogoImage" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="SaveUserSubscriptionPlan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="PlanId" Type="bigint" Mode="In" />
+          <Parameter Name="PlanAmount" Type="decimal" Mode="In" />
+          <Parameter Name="PayAmount" Type="decimal" Mode="In" />
+          <Parameter Name="Discount" Type="decimal" Mode="In" />
+          <Parameter Name="Currency" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SaveUserTemplate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TemplateId" Type="bigint" Mode="In" />
+          <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="Default" Type="bit" Mode="In" />
+        </Function>
+        <EntityContainer Name="amazonchampModelStoreContainer" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="amazonchampModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="amazonchampEntities1" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="AddCategory" ReturnType="Collection(amazonchampModel.AddCategory_Result)">
+            <Parameter Name="category" Mode="In" Type="String" />
+            <Parameter Name="parentId" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="ChangePassword" ReturnType="Collection(amazonchampModel.ChangePassword_Result)">
+            <Parameter Name="UserId" Mode="In" Type="Guid" />
+            <Parameter Name="OldPassword" Mode="In" Type="String" />
+            <Parameter Name="NewPassword" Mode="In" Type="String" />
+            <Parameter Name="ConfirmPassword" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ForgetPassword" ReturnType="Collection(amazonchampModel.ForgetPassword_Result)">
+          <Parameter Name="UserName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetAbout" ReturnType="Collection(amazonchampModel.GetAbout_Result)" />
+          <FunctionImport Name="GetKeywords" ReturnType="Collection(amazonchampModel.GetKeywords_Result)">
+            <Parameter Name="Keyword" Mode="In" Type="String" />
+            <Parameter Name="CategoryId" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="GetSubscriptionPendingDays" ReturnType="Collection(amazonchampModel.GetSubscriptionPendingDays_Result)">
+          <Parameter Name="UserId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="GetSubscriptionPlan" ReturnType="Collection(amazonchampModel.GetSubscriptionPlan_Result)" />
+          <FunctionImport Name="GetTemplates" ReturnType="Collection(amazonchampModel.GetTemplates_Result)" />
+          <FunctionImport Name="GetUserAbout" ReturnType="Collection(amazonchampModel.GetUserAbout_Result)">
+          <Parameter Name="UserId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="GetuserAuthorize" ReturnType="Collection(amazonchampModel.GetuserAuthorize_Result)">
+            <Parameter Name="userId" Mode="In" Type="Guid" />
+            <Parameter Name="userName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetUserData" ReturnType="Collection(amazonchampModel.GetUserData_Result)">
+          <Parameter Name="Id" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="GetUserProducts" ReturnType="Collection(amazonchampModel.GetUserProducts_Result)">
+          <Parameter Name="UserId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="GetUserSubscriptionPlan" ReturnType="Collection(amazonchampModel.GetUserSubscriptionPlan_Result)">
+          <Parameter Name="UserId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="GetUserTemplates" ReturnType="Collection(amazonchampModel.GetUserTemplates_Result)">
+          <Parameter Name="userId" Mode="In" Type="Guid" />
+            <Parameter Name="userName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="LoginAuthenticate" ReturnType="Collection(amazonchampModel.LoginAuthenticate_Result)">
+            <Parameter Name="Username" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="RecordTime" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="ProductCategory" ReturnType="Collection(amazonchampModel.ProductCategory_Result)" />
+          <FunctionImport Name="ProductKeywords" ReturnType="Collection(amazonchampModel.ProductKeywords_Result)">
+            <Parameter Name="Id" Mode="In" Type="Int64" />
+            <Parameter Name="Keyword" Mode="In" Type="String" />
+            <Parameter Name="ExactMatchSearchVolume" Mode="In" Type="Int64" />
+            <Parameter Name="BroadMatchSearchVolume" Mode="In" Type="Int64" />
+            <Parameter Name="CategoryId" Mode="In" Type="Int64" />
+            <Parameter Name="RecommendedGiveaway" Mode="In" Type="Int64" />
+            <Parameter Name="HSABid" Mode="In" Type="Int64" />
+            <Parameter Name="ExactPPBid" Mode="In" Type="Int64" />
+            <Parameter Name="BroadPPCBid" Mode="In" Type="Int64" />
+            <Parameter Name="EaseToRank" Mode="In" Type="Int64" />
+            <Parameter Name="RelevancyScore" Mode="In" Type="Int64" />
+            <Parameter Name="operation" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="RagisterUser" ReturnType="Collection(amazonchampModel.RagisterUser_Result)">
+            <Parameter Name="Username" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="RegisterationDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SaveProduct" ReturnType="Collection(amazonchampModel.SaveProduct_Result)">
+            <Parameter Name="ASIN" Mode="In" Type="String" />
+            <Parameter Name="userId" Mode="In" Type="Guid" />
+            <Parameter Name="isFeatured" Mode="In" Type="Boolean" />
+            <Parameter Name="categoryId" Mode="In" Type="Int64" />
+            <Parameter Name="operation" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SaveUserAbout" ReturnType="Collection(amazonchampModel.SaveUserAbout_Result)">
+            <Parameter Name="AboutTitle" Mode="In" Type="String" />
+            <Parameter Name="AboutSummary" Mode="In" Type="String" />
+            <Parameter Name="UserId" Mode="In" Type="Guid" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+            <Parameter Name="PhoneNo" Mode="In" Type="String" />
+            <Parameter Name="Twitter" Mode="In" Type="String" />
+            <Parameter Name="Facebook" Mode="In" Type="String" />
+            <Parameter Name="LinkedIn" Mode="In" Type="String" />
+            <Parameter Name="LogoImage" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SaveUserSubscriptionPlan" ReturnType="Collection(amazonchampModel.SaveUserSubscriptionPlan_Result)">
+            <Parameter Name="UserId" Mode="In" Type="Guid" />
+            <Parameter Name="PlanId" Mode="In" Type="Int64" />
+            <Parameter Name="PlanAmount" Mode="In" Type="Decimal" />
+            <Parameter Name="PayAmount" Mode="In" Type="Decimal" />
+            <Parameter Name="Discount" Mode="In" Type="Decimal" />
+            <Parameter Name="Currency" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SaveUserTemplate" ReturnType="Collection(amazonchampModel.SaveUserTemplate_Result)">
+            <Parameter Name="TemplateId" Mode="In" Type="Int64" />
+            <Parameter Name="UserId" Mode="In" Type="Guid" />
+            <Parameter Name="Default" Mode="In" Type="Boolean" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="AddCategory_Result">
+          <Property Type="String" Name="Response" Nullable="false" MaxLength="14" />
+          <Property Type="Int32" Name="Success" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="ChangePassword_Result">
+          <Property Type="String" Name="Response" Nullable="false" MaxLength="26" />
+          <Property Type="Boolean" Name="Success" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="ForgetPassword_Result">
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="GetAbout_Result">
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="AboutTitle" Nullable="true" />
+          <Property Type="String" Name="AboutSummary" Nullable="true" />
+          <Property Type="Guid" Name="UserId" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetKeywords_Result">
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Keyword" Nullable="true" />
+          <Property Type="Int64" Name="ExactMatchSearchVolume" Nullable="true" />
+          <Property Type="Int64" Name="BroadMatchSearchVolume" Nullable="true" />
+          <Property Type="Int64" Name="CategoryId" Nullable="true" />
+          <Property Type="Int64" Name="RecommendedGiveaway" Nullable="true" />
+          <Property Type="Int64" Name="HSABid" Nullable="true" />
+          <Property Type="Int64" Name="ExactPPBid" Nullable="true" />
+          <Property Type="Int64" Name="BroadPPCBid" Nullable="true" />
+          <Property Type="Int64" Name="EaseToRank" Nullable="true" />
+          <Property Type="Int64" Name="RelevancyScore" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetSubscriptionPendingDays_Result">
+          <Property Type="Int64" Name="PlanId" Nullable="true" />
+          <Property Type="DateTime" Name="FromDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="ToDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="PendingDay" Nullable="true" />
+          <Property Type="String" Name="PlanName" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetSubscriptionPlan_Result">
+          <Property Type="Int64" Name="PlanId" Nullable="false" />
+          <Property Type="String" Name="PlanName" Nullable="true" />
+          <Property Type="Decimal" Name="PlanAmount" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="Currency" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="GetTemplates_Result">
+          <Property Type="Int64" Name="TemplateId" Nullable="false" />
+          <Property Type="String" Name="TemplateName" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="ImageName" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetUserAbout_Result">
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="AboutTitle" Nullable="true" />
+          <Property Type="String" Name="AboutSummary" Nullable="true" />
+          <Property Type="String" Name="Address" Nullable="true" />
+          <Property Type="String" Name="PhoneNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Twitter" Nullable="true" />
+          <Property Type="String" Name="Facebook" Nullable="true" />
+          <Property Type="String" Name="LinkedIn" Nullable="true" />
+          <Property Type="String" Name="AttachmentLogoName" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetuserAuthorize_Result">
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Response" Nullable="false" MaxLength="521" />
+          <Property Type="Boolean" Name="Success" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetUserData_Result">
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Username" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="FullName" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="Country" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="State" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Company" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="RegisterationDate" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="isDeleted" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetUserProducts_Result">
+          <Property Type="Int64" Name="categoryId" Nullable="true" />
+          <Property Type="String" Name="ASIN" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="Category" Nullable="true" MaxLength="1000" />
+          <Property Type="Boolean" Name="isFeatured" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetUserSubscriptionPlan_Result">
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="true" />
+          <Property Type="Int64" Name="PlanId" Nullable="true" />
+          <Property Type="Decimal" Name="PlanAmount" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="PayAmount" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Discount" Nullable="true" />
+          <Property Type="Decimal" Name="Balance" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="Currency" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="PendingDay" Nullable="true" />
+          <Property Type="String" Name="PanelExpire" Nullable="false" MaxLength="5" />
+        </ComplexType>
+        <ComplexType Name="GetUserTemplates_Result">
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="Int64" Name="TemplateId" Nullable="true" />
+          <Property Type="Guid" Name="UserId" Nullable="true" />
+          <Property Type="DateTime" Name="ActivatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="TemplateName" Nullable="true" MaxLength="1000" />
+          <Property Type="Boolean" Name="Active" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="LoginAuthenticate_Result">
+          <Property Type="String" Name="Response" Nullable="false" MaxLength="20" />
+          <Property Type="Guid" Name="Id" Nullable="true" />
+          <Property Type="Boolean" Name="Success" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="ProductCategory_Result">
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Category" Nullable="true" MaxLength="1000" />
+          <Property Type="Int64" Name="parentId" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="ProductKeywords_Result">
+          <Property Type="String" Name="Response" Nullable="false" MaxLength="23" />
+          <Property Type="Boolean" Name="Success" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="RagisterUser_Result">
+          <Property Type="String" Name="Response" Nullable="false" MaxLength="21" />
+          <Property Type="Boolean" Name="Success" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SaveProduct_Result">
+          <Property Type="String" Name="Response" Nullable="false" MaxLength="15" />
+          <Property Type="Boolean" Name="Success" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SaveUserAbout_Result">
+          <Property Type="String" Name="Response" Nullable="false" MaxLength="14" />
+          <Property Type="Boolean" Name="Success" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SaveUserSubscriptionPlan_Result">
+          <Property Type="String" Name="Response" Nullable="false" MaxLength="30" />
+          <Property Type="Boolean" Name="Success" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SaveUserTemplate_Result">
+          <Property Type="String" Name="Response" Nullable="false" MaxLength="33" />
+          <Property Type="Boolean" Name="Success" Nullable="true" />
+        </ComplexType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="amazonchampModelStoreContainer" CdmEntityContainer="amazonchampEntities1" >
+          <FunctionImportMapping FunctionImportName="AddCategory" FunctionName="amazonchampModel.Store.AddCategory">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="amazonchampModel.AddCategory_Result">
+                <ScalarProperty Name="Response" ColumnName="Response" />
+                <ScalarProperty Name="Success" ColumnName="Success" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ChangePassword" FunctionName="amazonchampModel.Store.ChangePassword">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="amazonchampModel.ChangePassword_Result">
+                <ScalarProperty Name="Response" ColumnName="Response" />
+                <ScalarProperty Name="Success" ColumnName="Success" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ForgetPassword" FunctionName="amazonchampModel.Store.ForgetPassword">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="amazonchampModel.ForgetPassword_Result">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetAbout" FunctionName="amazonchampModel.Store.GetAbout">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="amazonchampModel.GetAbout_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AboutTitle" ColumnName="AboutTitle" />
+                <ScalarProperty Name="AboutSummary" ColumnName="AboutSummary" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetKeywords" FunctionName="amazonchampModel.Store.GetKeywords">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="amazonchampModel.GetKeywords_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+                <ScalarProperty Name="ExactMatchSearchVolume" ColumnName="ExactMatchSearchVolume" />
+                <ScalarProperty Name="BroadMatchSearchVolume" ColumnName="BroadMatchSearchVolume" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="RecommendedGiveaway" ColumnName="RecommendedGiveaway" />
+                <ScalarProperty Name="HSABid" ColumnName="HSABid" />
+                <ScalarProperty Name="ExactPPBid" ColumnName="ExactPPBid" />
+                <ScalarProperty Name="BroadPPCBid" ColumnName="BroadPPCBid" />
+                <ScalarProperty Name="EaseToRank" ColumnName="EaseToRank" />
+                <ScalarProperty Name="RelevancyScore" ColumnName="RelevancyScore" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetSubscriptionPendingDays" FunctionName="amazonchampModel.Store.GetSubscriptionPendingDays">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="amazonchampModel.GetSubscriptionPendingDays_Result">
+                <ScalarProperty Name="PlanId" ColumnName="PlanId" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="PendingDay" ColumnName="PendingDay" />
+                <ScalarProperty Name="PlanName" ColumnName="PlanName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetSubscriptionPlan" FunctionName="amazonchampModel.Store.GetSubscriptionPlan">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="amazonchampModel.GetSubscriptionPlan_Result">
+                <ScalarProperty Name="PlanId" ColumnName="PlanId" />
+                <ScalarProperty Name="PlanName" ColumnName="PlanName" />
+                <ScalarProperty Name="PlanAmount" ColumnName="PlanAmount" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetTemplates" FunctionName="amazonchampModel.Store.GetTemplates">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="amazonchampModel.GetTemplates_Result">
+                <ScalarProperty Name="TemplateId" ColumnName="TemplateId" />
+                <ScalarProperty Name="TemplateName" ColumnName="TemplateName" />
+                <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetUserAbout" FunctionName="amazonchampModel.Store.GetUserAbout">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="amazonchampModel.GetUserAbout_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AboutTitle" ColumnName="AboutTitle" />
+                <ScalarProperty Name="AboutSummary" ColumnName="AboutSummary" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+                <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+                <ScalarProperty Name="LinkedIn" ColumnName="LinkedIn" />
+                <ScalarProperty Name="AttachmentLogoName" ColumnName="AttachmentLogoName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetuserAuthorize" FunctionName="amazonchampModel.Store.GetuserAuthorize">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="amazonchampModel.GetuserAuthorize_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Response" ColumnName="Response" />
+                <ScalarProperty Name="Success" ColumnName="Success" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetUserData" FunctionName="amazonchampModel.Store.GetUserData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="amazonchampModel.GetUserData_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="RegisterationDate" ColumnName="RegisterationDate" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetUserProducts" FunctionName="amazonchampModel.Store.GetUserProducts">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="amazonchampModel.GetUserProducts_Result">
+                <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+                <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="isFeatured" ColumnName="isFeatured" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetUserSubscriptionPlan" FunctionName="amazonchampModel.Store.GetUserSubscriptionPlan">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="amazonchampModel.GetUserSubscriptionPlan_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="PlanId" ColumnName="PlanId" />
+                <ScalarProperty Name="PlanAmount" ColumnName="PlanAmount" />
+                <ScalarProperty Name="PayAmount" ColumnName="PayAmount" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="PendingDay" ColumnName="PendingDay" />
+                <ScalarProperty Name="PanelExpire" ColumnName="PanelExpire" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetUserTemplates" FunctionName="amazonchampModel.Store.GetUserTemplates">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="amazonchampModel.GetUserTemplates_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TemplateId" ColumnName="TemplateId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ActivatedDate" ColumnName="ActivatedDate" />
+                <ScalarProperty Name="TemplateName" ColumnName="TemplateName" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="LoginAuthenticate" FunctionName="amazonchampModel.Store.LoginAuthenticate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="amazonchampModel.LoginAuthenticate_Result">
+                <ScalarProperty Name="Response" ColumnName="Response" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Success" ColumnName="Success" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ProductCategory" FunctionName="amazonchampModel.Store.ProductCategory">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="amazonchampModel.ProductCategory_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="parentId" ColumnName="parentId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ProductKeywords" FunctionName="amazonchampModel.Store.ProductKeywords">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="amazonchampModel.ProductKeywords_Result">
+                <ScalarProperty Name="Response" ColumnName="Response" />
+                <ScalarProperty Name="Success" ColumnName="Success" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="RagisterUser" FunctionName="amazonchampModel.Store.RagisterUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="amazonchampModel.RagisterUser_Result">
+                <ScalarProperty Name="Response" ColumnName="Response" />
+                <ScalarProperty Name="Success" ColumnName="Success" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SaveProduct" FunctionName="amazonchampModel.Store.SaveProduct">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="amazonchampModel.SaveProduct_Result">
+                <ScalarProperty Name="Response" ColumnName="Response" />
+                <ScalarProperty Name="Success" ColumnName="Success" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SaveUserAbout" FunctionName="amazonchampModel.Store.SaveUserAbout">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="amazonchampModel.SaveUserAbout_Result">
+                <ScalarProperty Name="Response" ColumnName="Response" />
+                <ScalarProperty Name="Success" ColumnName="Success" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SaveUserSubscriptionPlan" FunctionName="amazonchampModel.Store.SaveUserSubscriptionPlan">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="amazonchampModel.SaveUserSubscriptionPlan_Result">
+                <ScalarProperty Name="Response" ColumnName="Response" />
+                <ScalarProperty Name="Success" ColumnName="Success" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SaveUserTemplate" FunctionName="amazonchampModel.Store.SaveUserTemplate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="amazonchampModel.SaveUserTemplate_Result">
+                <ScalarProperty Name="Response" ColumnName="Response" />
+                <ScalarProperty Name="Success" ColumnName="Success" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

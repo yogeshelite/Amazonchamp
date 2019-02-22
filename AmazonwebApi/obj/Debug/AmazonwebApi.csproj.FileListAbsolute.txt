@@ -1,0 +1,2 @@
+F:\Yogesh\amzchamp\AmazonwebApi\obj\Debug\AmazonwebApi.csproj.CoreCompileInputs.cache
+F:\Yogesh\amzchamp\AmazonwebApi\obj\Debug\AmazonwebApi.csprojAssemblyReference.cache

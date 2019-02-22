@@ -1,0 +1,70 @@
+﻿@model Amazonweb.Models.UserModel
+@{
+    ViewBag.Title = "Registeration";
+    Layout = "~/Views/Shared/_LayoutLoginSignup.cshtml";
+}
+@using (Html.BeginForm("Registeration", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="am-signup-wrapper">
+        <div class="am-signup-box">
+            <div class="row no-gutters">
+                <div class="col-lg-5">
+                    <div>
+                        <h2>amanda</h2>
+                        <p>The Responsive Bootstrap 4 Admin Template</p>
+                        <p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate.</p>
+
+                        <hr>
+                        <p>Already have an account? <br>  @Html.ActionLink("Sign in here", "Login", "Home")</p>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <h5 class="tx-gray-800 mg-b-25">Signin to Your Account</h5>
+                    <h5>
+                        @ViewBag.RegisterMessage
+                    </h5>
+                    <div class="form-group">
+                        <label class="form-control-label">User Name:</label>
+                        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+
+                    </div><!-- form-group -->
+                    <div class="form-group">
+                        <label class="form-control-label">Email:</label>
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div><!-- form-group -->
+                    <!-- row -->
+
+                    <div class="row row-xs">
+                        <div class="col">
+                            <div class="form-group">
+                                <label class="form-control-label">Password:</label>
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </div><!-- form-group -->
+                        </div><!-- col -->
+                        <div class="col">
+                            <div class="form-group">
+                                <label class="form-control-label">Confirm Password:</label>
+                                @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                            </div><!-- form-group -->
+                        </div><!-- col -->
+                    </div><!-- row -->
+
+
+
+                    <div class="form-group mg-b-20 tx-12">By clicking Sign Up button below you agree to our <a href="">Terms of Use</a> and our <a href="">Privacy Policy</a></div>
+
+                    <button type="submit" class="btn btn-block" onclick="location.href='@Url.Action("Home", "Register")'">Sign Up</button>
+
+                </div><!-- col-7 -->
+            </div><!-- row -->
+            @{
+                Html.RenderPartial("PartialView/_FooterPartial");
+            }
+        </div><!-- signin-box -->
+    </div><!-- am-signin-wrapper -->
+} 

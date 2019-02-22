@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2019
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazonweb.web", "Amazonweb.web\Amazonweb.web.csproj", "{A472738A-71E8-4429-A048-02122D52834D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmazonwebApi", "AmazonwebApi\AmazonwebApi.csproj", "{A0AA8B41-EDEF-4B8B-8772-755CE21913DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A472738A-71E8-4429-A048-02122D52834D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A472738A-71E8-4429-A048-02122D52834D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A472738A-71E8-4429-A048-02122D52834D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A472738A-71E8-4429-A048-02122D52834D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0AA8B41-EDEF-4B8B-8772-755CE21913DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0AA8B41-EDEF-4B8B-8772-755CE21913DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0AA8B41-EDEF-4B8B-8772-755CE21913DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0AA8B41-EDEF-4B8B-8772-755CE21913DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {921DB52D-735A-45C4-87CC-D8015D12C389}
+	EndGlobalSection
+EndGlobal

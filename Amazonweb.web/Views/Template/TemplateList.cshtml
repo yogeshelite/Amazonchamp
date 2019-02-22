@@ -1,0 +1,109 @@
+﻿@model Amazonweb.Models.ActiveTemplate
+
+@{
+    ViewBag.Title = "TemplateList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#BtnTemplateActive").click(function () {
+
+            var Rdo_arr = document.getElementsByName("rdotemplate[]");
+            var RdoLength = Rdo_arr.length;
+            var SelectedTemplate = "";
+            for (k = 0; k < RdoLength; k++) {
+                if (Rdo_arr[k].checked == true) {
+                    SelectedTemplate += Rdo_arr[k].value + ","
+                    }
+
+            }
+            SelectedTemplate = SelectedTemplate.substr(SelectedTemplate, SelectedTemplate.length - 1);
+            console.log(SelectedTemplate);
+            var TemplateId = SelectedTemplate;
+           $.ajax({
+                url: "../../ActiveTemplate/userTemplateActive",
+                type: "POST",
+                data: {
+                    TemplateId: TemplateId
+
+                },
+                success: function (result) {
+                    console.log(result);
+                   
+                }
+            });
+        });
+    });
+
+
+
+
+</script>
+@*@if (ViewBag.activeTemplateId != null)
+    {
+        <script type="text/javascript">
+                @Html.Raw(ViewBag.activeTemplateId)
+
+
+        </script>
+    }*@
+<script type="text/javascript">
+      @Html.Raw(ViewBag.activeTemplateId)
+    $(document).ready(function () {
+var someNumericValue = @(ViewBag.activeTemplateId);
+        JsFunTemplateActivate(someNumericValue);
+    })
+    function JsFunTemplateActivate(TemplateId) {
+        var Rdo_arr = document.getElementsByName("rdotemplate[]");
+        var RdoLength = Rdo_arr.length;
+        for (k = 0; k < RdoLength; k++) {
+
+            if (Rdo_arr[k].value == TemplateId) {
+                Rdo_arr[k].checked = true;
+
+            }
+        }
+    }
+</script>
+
+<div class="am-pagetitle">
+    <h5 class="am-title">Select Theme</h5>
+</div>
+<div class="am-pagebody">
+    <div class="card pd-20">
+        <div class="row">
+            <div height="30px" style="border:1px solid black">
+                <p> @ViewBag.shareUrl</p>
+            </div>
+            @using (Html.BeginForm())
+            {
+                foreach (var Template in ViewBag.TemplateList)
+                {
+
+                    <div class="card bd-0 col-md-3 pull-left spc-bt-30" id="@Template.TemplateId">
+                        <div style="height:200px;border :1px solid black;">
+                            <img class="card-img-top img-fluid" src="~/TemplateThemes/img/@Template.ImageName" alt="Image">
+                        </div>
+                           <div class="card-body bd bd-t-0">
+                            <h6 class="mg-b-3">
+                                <input type="radio" name="rdotemplate[]" value="@Template.TemplateId"
+                                       id="rdotemplate[]" />@Template.TemplateName
+                                </h6>
+                                <span class="tx-12">March 21, 2017 8:30pm</span>
+                            </div>
+                        </div>
+                    }
+                <div class="clearfix"></div>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <input id="BtnTemplateActive" type="button" class="btn btn-info" value="Submit" />
+                        </div>
+                    </div>
+                }
+        </div>
+    </div>
+</div>

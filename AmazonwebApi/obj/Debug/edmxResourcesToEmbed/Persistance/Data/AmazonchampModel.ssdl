@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="amazonchampModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <Function Name="AddCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="category" Type="nvarchar" Mode="In" />
+    <Parameter Name="parentId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="ChangePassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="OldPassword" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="NewPassword" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="ConfirmPassword" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="ForgetPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserName" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="GetAbout" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetKeywords" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Keyword" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CategoryId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="GetSubscriptionPendingDays" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="GetSubscriptionPlan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetTemplates" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetUserAbout" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="GetuserAuthorize" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="userName" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="GetUserData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="GetUserProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="GetUserSubscriptionPlan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="GetUserTemplates" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="userName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="LoginAuthenticate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Username" Type="nvarchar" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar" Mode="In" />
+    <Parameter Name="RecordTime" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="ProductCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ProductKeywords" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="bigint" Mode="In" />
+    <Parameter Name="Keyword" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="ExactMatchSearchVolume" Type="bigint" Mode="In" />
+    <Parameter Name="BroadMatchSearchVolume" Type="bigint" Mode="In" />
+    <Parameter Name="CategoryId" Type="bigint" Mode="In" />
+    <Parameter Name="RecommendedGiveaway" Type="bigint" Mode="In" />
+    <Parameter Name="HSABid" Type="bigint" Mode="In" />
+    <Parameter Name="ExactPPBid" Type="bigint" Mode="In" />
+    <Parameter Name="BroadPPCBid" Type="bigint" Mode="In" />
+    <Parameter Name="EaseToRank" Type="bigint" Mode="In" />
+    <Parameter Name="RelevancyScore" Type="bigint" Mode="In" />
+    <Parameter Name="operation" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="RagisterUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Username" Type="nvarchar" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="RegisterationDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="SaveProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ASIN" Type="nvarchar" Mode="In" />
+    <Parameter Name="userId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="isFeatured" Type="bit" Mode="In" />
+    <Parameter Name="categoryId" Type="bigint" Mode="In" />
+    <Parameter Name="operation" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SaveUserAbout" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AboutTitle" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="AboutSummary" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Address" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="PhoneNo" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Twitter" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Facebook" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="LinkedIn" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="LogoImage" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="SaveUserSubscriptionPlan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="PlanId" Type="bigint" Mode="In" />
+    <Parameter Name="PlanAmount" Type="decimal" Mode="In" />
+    <Parameter Name="PayAmount" Type="decimal" Mode="In" />
+    <Parameter Name="Discount" Type="decimal" Mode="In" />
+    <Parameter Name="Currency" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SaveUserTemplate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TemplateId" Type="bigint" Mode="In" />
+    <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Default" Type="bit" Mode="In" />
+  </Function>
+  <EntityContainer Name="amazonchampModelStoreContainer" />
+</Schema>

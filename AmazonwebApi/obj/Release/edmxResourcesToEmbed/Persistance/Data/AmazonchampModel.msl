@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="amazonchampModelStoreContainer" CdmEntityContainer="amazonchampEntities1">
+    <FunctionImportMapping FunctionImportName="AddCategory" FunctionName="amazonchampModel.Store.AddCategory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="amazonchampModel.AddCategory_Result">
+          <ScalarProperty Name="Response" ColumnName="Response" />
+          <ScalarProperty Name="Success" ColumnName="Success" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ChangePassword" FunctionName="amazonchampModel.Store.ChangePassword">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="amazonchampModel.ChangePassword_Result">
+          <ScalarProperty Name="Response" ColumnName="Response" />
+          <ScalarProperty Name="Success" ColumnName="Success" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ForgetPassword" FunctionName="amazonchampModel.Store.ForgetPassword">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="amazonchampModel.ForgetPassword_Result">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAbout" FunctionName="amazonchampModel.Store.GetAbout">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="amazonchampModel.GetAbout_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AboutTitle" ColumnName="AboutTitle" />
+          <ScalarProperty Name="AboutSummary" ColumnName="AboutSummary" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetKeywords" FunctionName="amazonchampModel.Store.GetKeywords">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="amazonchampModel.GetKeywords_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+          <ScalarProperty Name="ExactMatchSearchVolume" ColumnName="ExactMatchSearchVolume" />
+          <ScalarProperty Name="BroadMatchSearchVolume" ColumnName="BroadMatchSearchVolume" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="RecommendedGiveaway" ColumnName="RecommendedGiveaway" />
+          <ScalarProperty Name="HSABid" ColumnName="HSABid" />
+          <ScalarProperty Name="ExactPPBid" ColumnName="ExactPPBid" />
+          <ScalarProperty Name="BroadPPCBid" ColumnName="BroadPPCBid" />
+          <ScalarProperty Name="EaseToRank" ColumnName="EaseToRank" />
+          <ScalarProperty Name="RelevancyScore" ColumnName="RelevancyScore" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetSubscriptionPendingDays" FunctionName="amazonchampModel.Store.GetSubscriptionPendingDays">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="amazonchampModel.GetSubscriptionPendingDays_Result">
+          <ScalarProperty Name="PlanId" ColumnName="PlanId" />
+          <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+          <ScalarProperty Name="PendingDay" ColumnName="PendingDay" />
+          <ScalarProperty Name="PlanName" ColumnName="PlanName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetSubscriptionPlan" FunctionName="amazonchampModel.Store.GetSubscriptionPlan">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="amazonchampModel.GetSubscriptionPlan_Result">
+          <ScalarProperty Name="PlanId" ColumnName="PlanId" />
+          <ScalarProperty Name="PlanName" ColumnName="PlanName" />
+          <ScalarProperty Name="PlanAmount" ColumnName="PlanAmount" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetTemplates" FunctionName="amazonchampModel.Store.GetTemplates">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="amazonchampModel.GetTemplates_Result">
+          <ScalarProperty Name="TemplateId" ColumnName="TemplateId" />
+          <ScalarProperty Name="TemplateName" ColumnName="TemplateName" />
+          <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUserAbout" FunctionName="amazonchampModel.Store.GetUserAbout">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="amazonchampModel.GetUserAbout_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AboutTitle" ColumnName="AboutTitle" />
+          <ScalarProperty Name="AboutSummary" ColumnName="AboutSummary" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+          <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+          <ScalarProperty Name="LinkedIn" ColumnName="LinkedIn" />
+          <ScalarProperty Name="AttachmentLogoName" ColumnName="AttachmentLogoName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetuserAuthorize" FunctionName="amazonchampModel.Store.GetuserAuthorize">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="amazonchampModel.GetuserAuthorize_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Response" ColumnName="Response" />
+          <ScalarProperty Name="Success" ColumnName="Success" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUserData" FunctionName="amazonchampModel.Store.GetUserData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="amazonchampModel.GetUserData_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="RegisterationDate" ColumnName="RegisterationDate" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUserProducts" FunctionName="amazonchampModel.Store.GetUserProducts">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="amazonchampModel.GetUserProducts_Result">
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="isFeatured" ColumnName="isFeatured" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUserSubscriptionPlan" FunctionName="amazonchampModel.Store.GetUserSubscriptionPlan">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="amazonchampModel.GetUserSubscriptionPlan_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="PlanId" ColumnName="PlanId" />
+          <ScalarProperty Name="PlanAmount" ColumnName="PlanAmount" />
+          <ScalarProperty Name="PayAmount" ColumnName="PayAmount" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="PendingDay" ColumnName="PendingDay" />
+          <ScalarProperty Name="PanelExpire" ColumnName="PanelExpire" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUserTemplates" FunctionName="amazonchampModel.Store.GetUserTemplates">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="amazonchampModel.GetUserTemplates_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TemplateId" ColumnName="TemplateId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ActivatedDate" ColumnName="ActivatedDate" />
+          <ScalarProperty Name="TemplateName" ColumnName="TemplateName" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LoginAuthenticate" FunctionName="amazonchampModel.Store.LoginAuthenticate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="amazonchampModel.LoginAuthenticate_Result">
+          <ScalarProperty Name="Response" ColumnName="Response" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Success" ColumnName="Success" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ProductCategory" FunctionName="amazonchampModel.Store.ProductCategory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="amazonchampModel.ProductCategory_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="parentId" ColumnName="parentId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ProductKeywords" FunctionName="amazonchampModel.Store.ProductKeywords">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="amazonchampModel.ProductKeywords_Result">
+          <ScalarProperty Name="Response" ColumnName="Response" />
+          <ScalarProperty Name="Success" ColumnName="Success" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RagisterUser" FunctionName="amazonchampModel.Store.RagisterUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="amazonchampModel.RagisterUser_Result">
+          <ScalarProperty Name="Response" ColumnName="Response" />
+          <ScalarProperty Name="Success" ColumnName="Success" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SaveProduct" FunctionName="amazonchampModel.Store.SaveProduct">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="amazonchampModel.SaveProduct_Result">
+          <ScalarProperty Name="Response" ColumnName="Response" />
+          <ScalarProperty Name="Success" ColumnName="Success" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SaveUserAbout" FunctionName="amazonchampModel.Store.SaveUserAbout">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="amazonchampModel.SaveUserAbout_Result">
+          <ScalarProperty Name="Response" ColumnName="Response" />
+          <ScalarProperty Name="Success" ColumnName="Success" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SaveUserSubscriptionPlan" FunctionName="amazonchampModel.Store.SaveUserSubscriptionPlan">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="amazonchampModel.SaveUserSubscriptionPlan_Result">
+          <ScalarProperty Name="Response" ColumnName="Response" />
+          <ScalarProperty Name="Success" ColumnName="Success" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SaveUserTemplate" FunctionName="amazonchampModel.Store.SaveUserTemplate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="amazonchampModel.SaveUserTemplate_Result">
+          <ScalarProperty Name="Response" ColumnName="Response" />
+          <ScalarProperty Name="Success" ColumnName="Success" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
