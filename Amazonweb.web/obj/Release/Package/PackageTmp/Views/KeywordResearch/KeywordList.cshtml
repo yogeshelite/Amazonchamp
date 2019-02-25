@@ -1,0 +1,152 @@
+﻿@model IEnumerable<Amazonweb.Models.KeywordResearchModel>
+
+
+@{
+    ViewBag.Title = "KeywordList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="am-pagetitle">
+        <h5 class="am-title">Keyword List</h5>
+        @Html.ActionLink("Create New", "Create")
+    </div><!-- am-pagetitle -->
+    <div class="am-pagebody">
+        <script type="text/javascript">
+            function Search() {
+                var SelectSearch = document.getElementById("category");
+                var SelectedIndex = SelectSearch.options[SelectSearch.selectedIndex].value;
+                var SearchValue = document.getElementById("txtSearch").value;
+                console.log("Selected Value==" + SelectedIndex + " Search VAlue" + SearchValue);
+                alert("Call Search");
+
+                $.ajax({
+                    url: "../../KeywordResearch/GetKeywordAjx",
+                    type: "POST",
+                    data: {
+                        searchText: SearchValue,
+                        categoryid: SelectedIndex
+
+                    },
+                    success: function (result) {
+                        console.log(result);
+                    }
+                });
+            }
+        </script>
+        @using (Html.BeginForm("GetKeywordAjx", "KeywordResearch", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+        <div class="header-top">
+            <div class="col-md-6 pull-left">
+                <div class="form-group">
+                    <input type="text" name="txtSearch" id="txtSearch" class="form-control" />
+                </div>
+            </div>
+            <div class="col-md-3 pull-left">
+                <div class="form-group">
+                    <select id="category" name="category" class="form-control select2">
+                        @foreach (var cat in ViewBag.ProductCategoryList)
+                        {
+                            <option value="@cat.Value">@cat.Text</option>
+                        }
+
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-2 pull-left">
+                <input type="submit" class="btn btn-info" value="Search" />
+            </div>
+            </div>
+            <div class="clearfix"></div>
+           
+                <div>
+                    <div class="card pd-20">
+                        <div class="table-responsive">
+                            <table class="table table-striped mg-b-0" id="datatable1">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.KeyWord)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ExactMatchSearchVolume)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.BroadMatchSearchVolume)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.CategoryId)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.RecommendedGiveaway)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.HSABid)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ExactPPCBid)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.BroadPPCBid)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.EaseToRank)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.RelevancyScore)
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.KeyWord)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ExactMatchSearchVolume)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.BroadMatchSearchVolume)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CategoryId)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.RecommendedGiveaway)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.HSABid)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ExactPPCBid)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.BroadPPCBid)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.EaseToRank)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.RelevancyScore)
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+
+
+
+                        </div><!-- table-responsive -->
+                    </div>
+                </div><!-- row -->
+                }
+
+            </div><!-- am-pagebody -->
+

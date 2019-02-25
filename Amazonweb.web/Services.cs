@@ -13,7 +13,7 @@ namespace Amazonweb
  
     public class Services
     {
-        public static string ApiUrl =>string.Format("{0}/{1}",(ConfigurationManager.AppSettings["IsTest"].Equals("1") ) ? "http://localhost:49938" : "http://192.168.1.150:2550",  Properties.Settings.Default.ApiUrl);
+        public static string ApiUrl =>string.Format("{0}/{1}",(ConfigurationManager.AppSettings["IsTest"].Equals("1") ) ? "http://localhost:49938" : "http://192.168.1.175:2200",  Properties.Settings.Default.ApiUrl);
         #region Api Response
 
         public static HttpWebResponse GetApiResponse(string url, string metthod, string postData)

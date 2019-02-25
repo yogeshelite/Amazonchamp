@@ -14,22 +14,23 @@
 
             var Rdo_arr = document.getElementsByName("rdotemplate[]");
             var RdoLength = Rdo_arr.length;
-            var SelectedTemplate = "";
+            var TemplateId = "";
             for (k = 0; k < RdoLength; k++) {
                 if (Rdo_arr[k].checked == true) {
-                    SelectedTemplate += Rdo_arr[k].value + ","
+                    TemplateId = Rdo_arr[k].value 
                     }
 
             }
-            SelectedTemplate = SelectedTemplate.substr(SelectedTemplate, SelectedTemplate.length - 1);
-            console.log(SelectedTemplate);
-            var TemplateId = SelectedTemplate;
+
+
+           // SelectedTemplate = $(this).val();   // SelectedTemplate.substr(SelectedTemplate, SelectedTemplate.length - 1);
+               
            $.ajax({
-                url: "../../ActiveTemplate/userTemplateActive",
+               url: "../Template/SetTemplateActive",
                 type: "POST",
                 data: {
-                    TemplateId: TemplateId
-
+                    TemplateId: TemplateId,
+                    IsActive : true
                 },
                 success: function (result) {
                     console.log(result);

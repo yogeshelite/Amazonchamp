@@ -1,0 +1,95 @@
+﻿@model AmzonWebApi.Models.AmazonModel
+
+@{
+    ViewBag.Title = "CheckScore";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#bbSubmit").click(function () {
+
+            document.getElementById("table").innerHTML = "";
+            // console.log(SelectedCategory);
+            var asin = $("#txtASIN").val();
+            var merchantId = $("#txtMerchantId").val();
+            $.ajax({
+                url: "../../Home/JsonGetItemFromAmazon",
+                type: "POST",
+                data: {
+                    ASIN: asin
+                },
+                success: function (result) {
+                    console.log(result);
+                    var object = JSON.parse(result);  //Dataset
+                    var title = "";//object.ItemAttributes[0].Title;
+                    var item = object.Item;
+                    var smallImage = object.SmallImage;
+
+                    var tableStart = "<table class='table'>";
+                    var tblHead = "<thead><tr><th>ASIN</th><th>Title</th><th>Price</th><th>Images</th><th>Reviews</th></tr></thead>";
+                    var tblrow = "";
+                    for (i = 0; i < object.Item.length; i++) {
+                        //console.log(object.Price[i].FormattedPrice);
+                        // alert(object.Price[i].FormattedPrice);
+                        var imageTag = '<img src="' + object.SmallImage[i].URL + '"/><br/>';
+                        var price = "0";
+                        if (i < object.Price.length)
+                            price = object.Price[i].FormattedPrice;
+                        tblrow += "<tr><td><a href='" + object.Item[i].DetailPageURL + "' target='_blank'>" + object.Item[i].ASIN + "</a></td><td>" + object.ItemAttributes[i].Label +
+                            "</td><td>" + price + "</td><td>" + imageTag + "</td>" +
+                            "<td><a href='" + object.CustomerReviews[i].IFrameURL + "'  target='_blank'>Reviews</a></td>" + "</tr>";
+
+                    }
+
+                    if (object.Error)
+                        tblrow += "<tr><td>" + object.Error[0].Message + "</td> <td>" + object.Error[0].Code + "</td></tr>";
+
+                    var tableEnd = "</table>";
+                    var tblComp = tableStart + tblHead + tblrow + tableEnd;
+                    $("#table").append(tblComp);
+
+                    var content = "<table class='table'><thead><tr><th>Title</th><th>Price</th><th>Reviews</th><th>Images</th></tr></thead>"
+
+                    var additionalData = '<tr><td style="word-wrap: break-word;min-width: 60px;max-width:60px;">' + title +
+                        '</td>' + '<td>' + object.SalePrice[0].FormattedPrice + '</td>' + '<td> <iframe id="myFrame" src=' +
+                        object.CustomerReviews[0].IFrameURL + ' style="height:380px;width:100%"></iframe><td>';
+
+                    content += additionalData;
+                    for (i = 0; i < object.LargeImage.length; i++) {
+                        content += '<img src="' + object.SmallImage[i].URL + '"/><br/>';
+                    }
+                    content += "</td></tr></table>"
+
+                    $("#table").append(content);
+
+                    //$("#result").text(result);        //Just in case need to study result
+                }
+            });
+        });
+    });
+</script>
+<div class="am-pagetitle">
+    <h5 class="am-title">Check Score</h5>
+</div>
+<div class="am-pagebody">
+    <div class="card pd-20">
+        <div class="form-horizontal">
+
+            <div class="form-group">
+                <div class="col-lg-4 mg-t-20 mg-lg-t-0 spc-0">
+                    <div class="input-group">
+                        <input type="text" id="txtASIN" class="form-control" placeholder="Search Product and Check Score...">
+                        <span class="input-group-btn">
+                            <button class="btn bd bg-white tx-gray-600" id="bbSubmit" type="button"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div><!-- input-group -->
+                </div>
+            
+          
+        </div>
+        <div id="table" class="table table-striped">
+
+        </div>
+    </div>
+</div>

@@ -292,7 +292,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Constant.cs" />
-    <Compile Include="Controllers\ActiveTemplateController.cs" />
+    <Compile Include="Controllers\TemplateController.cs" />
     <Compile Include="Controllers\AmazonProductController.cs" />
     <Compile Include="Controllers\HeaderPartialController.cs" />
     <Compile Include="Controllers\SidebarPartialController.cs" />

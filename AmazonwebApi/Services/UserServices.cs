@@ -91,7 +91,7 @@ namespace AmazonwebApi.Services
         public ResponseModel SaveUserTemplate(UserTemplateModel UserTemplateActiveModel)
         {
             var _result = _instance.SaveUserTemplate(UserTemplateActiveModel);
-            return new ResponseModel() { Response = "1", Success = true };
+            return new ResponseModel() { Response=_result.Response, Success = _result.Success.Value };
         }
 
         public ResponseModel GetUserTemplates(UserTemplateModel UserTemplateActiveModel)
