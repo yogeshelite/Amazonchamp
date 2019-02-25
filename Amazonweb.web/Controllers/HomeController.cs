@@ -40,7 +40,7 @@ namespace Amazonweb.web.Controllers
         }
         [HttpPost]
         [Route("RegisterUser")]
-        public ActionResult Registeration(UserModel userModel)
+        public ActionResult RegisterUser(UserModel userModel)
         {
             if (ModelState.IsValid)
             {
@@ -145,15 +145,17 @@ namespace Amazonweb.web.Controllers
         }
 
 
-
+        [Route("Registeration")]
         public ActionResult Registeration()
         {
             return View();
         }
+        [Route("Registeration")]
         public ActionResult Login()
         {
             return View();
         }
+        [Route("About")]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
