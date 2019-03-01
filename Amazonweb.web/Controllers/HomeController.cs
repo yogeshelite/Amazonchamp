@@ -150,7 +150,7 @@ namespace Amazonweb.web.Controllers
         {
             return View();
         }
-        [Route("Registeration")]
+        [Route("Login")]
         public ActionResult Login()
         {
             return View();

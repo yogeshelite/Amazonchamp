@@ -23,13 +23,10 @@ namespace Amazonweb
                 ASCIIEncoding encoding = new ASCIIEncoding();
                 byte[] data = encoding.GetBytes(string.Concat("{Data:\"", postData, "\"}"));
               //  string encoded = System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(Properties.Settings.Default.DegaAPIUser + ":" + Properties.Settings.Default.DegaAPIPassword));
-
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(new Uri(string.Format (ApiUrl,url)));
                 request.Method = metthod;
-              
-               
-                    request.ContentType = "application/json";
-                    request.ContentLength = data.Length;
+                request.ContentType = "application/json";
+                request.ContentLength = data.Length;
                 
                 
              //   request.Headers.Add("Authorization", "Basic " + encoded);

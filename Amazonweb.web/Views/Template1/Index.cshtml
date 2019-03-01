@@ -3,7 +3,18 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutTemplate1.cshtml";
 }
+<script type="text/javascript">
 
+        function GetQueryStringParameter() {
+            var userId = getUserId();
+            //console.log(userId);
+            GetProductAsinIndex(userId);
+        }
+        $(document).ready(function () {
+            GetQueryStringParameter();
+        });
+
+</script>
 <div class="container">
     <div class="row">
         <div class="col-lg-3">
@@ -15,6 +26,9 @@
             </div>
         </div>
         <!-- /.col-lg-3 -->
+        <div id="FeacturedItem"></div>
+        <div id="FeacturedItem"></div>
+        <div id="Divlogo"></div>
         <div class="col-lg-9">
             <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -23,6 +37,7 @@
                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner" role="listbox">
+                    @*<div class="carousel-item active" id="Divlogo"></div>*@
                     <div class="carousel-item active">
                         <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="First slide">
                     </div>

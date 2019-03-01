@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Views/Shared/_LayoutTemplate1.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript">
+
+        function GetQueryStringParameter() {
+            var userId = getUserId();
+
+            GetProductAsinAllProducts(userId);
+        }
+
+        $(document).ready(function () {
+            GetQueryStringParameter();
+            // var getListAsin = GetProductAsin();
+            // GetQueryStringParameter()
+        });
+
+    </script>
+</head>
+</html>
+<h2>Product</h2>
+

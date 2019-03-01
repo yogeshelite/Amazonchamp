@@ -12,16 +12,14 @@ namespace Amazonweb.web
             #region Template 1 Start
             bundles.Add(new ScriptBundle("~/Template1/jquery").Include(
                   "~/TemplateThemes/Template1/vendor/jquery/jquery.min.js",
-  "~/TemplateThemes/Template1/vendor/bootstrap/js/bootstrap.bundle.min.js"
+  "~/TemplateThemes/Template1/vendor/bootstrap/js/bootstrap.bundle.min.js",
+  "~/TemplateThemes/commantemplate/commonFile.js"
                      ));
-
             bundles.Add(new ScriptBundle("~/Template1/css").Include(
                "~/TemplateThemes/Template1/vendor/bootstrap/css/bootstrap.min.css",
                "~/TemplateThemes/Template1/vendor/css/shop-homepage.css"
-
                    ));
             #endregion 
-
             #region  Template 2 Start
             bundles.Add(new ScriptBundle("~/Template2/jquery").Include(
                   "~/TemplateThemes/Template2/vendor/jquery/jquery.min.js",

@@ -1,11 +1,11 @@
 ﻿
-using System.Linq;
-using System.Web.Mvc;
-using System;
 using Amazonweb.Models;
-using System.Collections.Generic;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Web;
 
 namespace Amazonweb.web.Handlers
 {
@@ -17,7 +17,7 @@ namespace Amazonweb.web.Handlers
             url = url ?? "/";
             url = url == "/" ? "" : url;
             url = url.ToLower();
-
+             
             UrlRouteData urlRoute = null;
             if (!string.IsNullOrEmpty(url.Trim()) )
             {
@@ -29,6 +29,9 @@ namespace Amazonweb.web.Handlers
                         var template = GetUserActiveTemplate(new UserTemplate() { UserName = urlsegment[1] });
                         if (template != null)
                         {
+                            HttpCookie userName = new HttpCookie("userName", urlsegment[1]);
+                            userName.Expires = DateTime.Now.AddDays(-1);
+                            HttpContext.Current.Response.Cookies.Add(userName);
                             return new UrlRouteData()
                             {
                                 Id = new Random().Next(),
