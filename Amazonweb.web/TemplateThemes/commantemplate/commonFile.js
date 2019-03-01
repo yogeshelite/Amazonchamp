@@ -98,9 +98,9 @@ function SendMail() {
     var Phone = document.getElementById('txtPhone').value;
     var Subject = document.getElementById('txtSubject').value;
     console.log(Subject, email, message, name, Phone);
-    console.log("/" + userIdPram + "/SendMailContact");
+    //console.log("/" + userIdPram + "/SendMail");
     $.ajax({
-        url: "/" + userIdPram + "/SendMailContact",
+        url: "/" + userIdPram + "/SendMail",
         //url: "../../../../UserAbout/SendMailContact",
         type: "POST",
         data: {
@@ -305,7 +305,9 @@ function GetProductAsinAllProducts(userIdPram) {
     
     // var userId = GetQueryStringParameter();
     $.ajax({
-        url: "../../../../UserProduct/GetProductASIN",
+        //url: "../../../../UserProduct/GetProductASIN",
+        url: "/" + userIdPram + "/GetProductASIN",
+
         type: "POST",
         data: {
             "UserId": userIdPram

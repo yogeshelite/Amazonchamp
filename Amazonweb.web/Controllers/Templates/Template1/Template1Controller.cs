@@ -151,7 +151,6 @@ namespace Amazonweb.Controllers.Template.Template1
             }
 
 
-
             return Json("Not Found", JsonRequestBehavior.AllowGet);
             // Example of link https://webservices.amazon.com/onca/xml?AWSAccessKeyId=AKIAIB32UVMKXN37TKIA&AssociateTag=mobilea0477c9-20&IdType=ASIN&ItemId=B00X3Q0L3O&Operation=ItemLookup&ResponseGroup=Images%2CItemAttributes%2COffers&Service=AWSECommerceService&Timestamp=2018-07-04T09%3A02%3A14.000Z&Signature=D1RRwL8jdAcQ5XhrSdYImtJvK9FwE8DSaVlKfZ68t%2Fc%3D
         }
@@ -201,7 +200,7 @@ namespace Amazonweb.Controllers.Template.Template1
         {
             return View();
         }
-     
+
 
         [Route("u/{userName}/Contactus")]
 
@@ -209,7 +208,7 @@ namespace Amazonweb.Controllers.Template.Template1
         {
             return View();
         }
-        [Route("u/{userName}/SendMailContact")]
+        [Route("u/{userName}/SendMail")]
         public int SendMailContact(string receiverEmailId, string name, string message, string phone, string subject)
         {
             try
@@ -217,7 +216,7 @@ namespace Amazonweb.Controllers.Template.Template1
                 var senderEmail = new MailAddress("ashishsharma@accendos.in", name);
                 var receiverEmail = new MailAddress(receiverEmailId, "Receiver");
                 var password = "ashu89880";
-                var body = "<b>Phone N0 is</b>= " + phone + "<p> Text Message= " + message + "</p>"+ "<p>Subject= "+ subject +"</p>";
+                var body = "<b>Phone N0 is</b>= " + phone + "<p> Text Message= " + message + "</p>" + "<p>Subject= " + subject + "</p>";
                 var smtp = new SmtpClient
                 {
                     Host = "smtp.gmail.com",
@@ -252,6 +251,12 @@ namespace Amazonweb.Controllers.Template.Template1
         {
             return View();
         }
-      
+        [Route("u/{userName}/Product")]
+
+        public ActionResult Product()
+        {
+            return View();
+        }
+
     }
 }
