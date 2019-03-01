@@ -297,6 +297,7 @@ namespace Amazonweb.web.Controllers
 
             return null;
         }
+        [Route("Home/JsonGetItemFromAmazon")]
         public JsonResult JsonGetItemFromAmazon(AmazonModel amazonModel)    //TODO: primitive parameters // Fixed
         {
 

@@ -191,6 +191,7 @@ namespace Amazonweb.web.Controllers
         }
 
         // GET: ProductSave/Edit/5
+        //[Route("UserProduct/Products/Edit")]
         public ActionResult Edit(int id)
         {
             return View();
@@ -213,6 +214,7 @@ namespace Amazonweb.web.Controllers
         }
 
         // GET: ProductSave/Delete/5
+        [Route("Products/Delete")]
         public ActionResult Delete(string Asin)
         {
             ProductSaveModel productSaveModel = new ProductSaveModel()

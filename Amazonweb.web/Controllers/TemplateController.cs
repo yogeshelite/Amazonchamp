@@ -108,11 +108,11 @@ namespace Amazonweb.Controllers
         {
             return View();
         }
-
+        [Route("Template/SetTemplateActive")]
         public ActionResult SetTemplateActive(int TemplateId,bool IsActive )
         {
 
-            Guid UserId = Services.GetLoginUser(this.ControllerContext.HttpContext, _JwtTokenManager).Id; ;
+            Guid UserId = Services.GetLoginUser(this.ControllerContext.HttpContext, _JwtTokenManager).Id;
             UserTemplate objUserTemplateActive = new UserTemplate();
             objUserTemplateActive.TemplateId = TemplateId;
             objUserTemplateActive.UserId = UserId;
@@ -138,7 +138,6 @@ namespace Amazonweb.Controllers
                         ResponseModel retResponse = JsonConvert.DeserializeObject<ResponseModel>(json["unique_name"].ToString());
                         if (!retResponse.Success) { ViewBag.Message = retResponse.Response; return View("TemplateList", objUserTemplateActive); }
                         return RedirectToAction("TemplateList");
-
                     }
 
                 }

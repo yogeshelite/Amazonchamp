@@ -179,6 +179,7 @@ namespace Amazonweb.web.Controllers
                 return View();
             }
         }
+        [Route("KeywordResearch/SerchKeyword")]
         public ActionResult GetKeywordAjx(FormCollection collection)
         {
             var ProductCategoryList = GetListCategory();
@@ -186,7 +187,6 @@ namespace Amazonweb.web.Controllers
             long categoryid = long.Parse(collection["category"]);
             KeywordResearchModel objModel = new KeywordResearchModel()
             {
-
                 KeyWord = searchText,
                 CategoryId = categoryid
             };
@@ -261,6 +261,7 @@ namespace Amazonweb.web.Controllers
         }
 
         [HttpPost]
+        [Route("KeywordUpload")]
         public ActionResult KeywordUpload(KeywordResearchModel objKeywordModle,FormCollection frmColl)
         {
             var postedFile = Request.Files["FileUploadKeyword"];
@@ -361,8 +362,10 @@ namespace Amazonweb.web.Controllers
                             #endregion
                         }
                     }
-                   // ListKeyword = GetKeyword("", 0);
-                    return RedirectToAction("KeywordAdd");
+                    return View("KeywordAdd");
+
+                    // ListKeyword = GetKeyword("", 0);
+                    //return RedirectToAction("KeywordAdd", "KeywordResearch");
                     ////deleting excel file from folder  
                     //if ((System.IO.File.Exists(pathToExcelFile)))
                     //{

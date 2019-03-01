@@ -137,6 +137,7 @@ namespace Amazonweb.Controllers
         }
 
         // GET: UserAbout/Edit/5
+        [Route("UserAbout/AboutsList/Edit")]
         public ActionResult Edit(int id)
         {
             String userId = Convert.ToString(Services.GetLoginUser(this.ControllerContext.HttpContext, _JwtTokenManager).Id);
@@ -155,8 +156,9 @@ namespace Amazonweb.Controllers
 
         // POST: UserAbout/Edit/5
         [HttpPost]
+        [Route("UserAbout/AboutsList/Update")]
         [ValidateInput(false)]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult update(int id, FormCollection collection)
         {
             try
             {
