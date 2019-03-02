@@ -17,7 +17,7 @@ namespace Amazonweb.Controllers.Template.Template1
     {
         JwtTokenManager _JwtTokenManager = new JwtTokenManager();
 
-        [Route("u/{userName}/Index")]
+        [Route("u/{userName}")]
         public ActionResult Index(string userName)
         {
             return View();

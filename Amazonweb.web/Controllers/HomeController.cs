@@ -22,7 +22,7 @@ namespace Amazonweb.web.Controllers
     {
         JwtTokenManager _JwtTokenManager = new JwtTokenManager();
         List<SubscriptionPlanModel> ListPlan;
-        [Route("Dashboard")]
+        [Route("Home/Index")]
         public ActionResult Index()
         {
             UserModel MdUser = Services.GetLoginUser(this.ControllerContext.HttpContext, _JwtTokenManager);
