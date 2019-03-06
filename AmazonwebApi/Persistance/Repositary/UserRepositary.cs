@@ -80,8 +80,12 @@ namespace AmazonwebApi.Persistance.Repositary
             return Context.SaveUserTemplate(userTemplateModel.TemplateId, userTemplateModel.UserId, userTemplateModel.Active).FirstOrDefault();
         }
 
+        public GetUserActiveTemplate_Result GetUserActiveTemplate(UserTemplateModel userTemplateActiveModel)
+        {
+            return Context.GetUserActiveTemplate(userTemplateActiveModel.UserId).FirstOrDefault();
 
-
+         
+        }
     }
 
     public interface IUserRepositary : IGenericRepository<amazonchampEntities1>
@@ -99,5 +103,7 @@ namespace AmazonwebApi.Persistance.Repositary
 
         SaveUserTemplate_Result SaveUserTemplate(UserTemplateModel userTemplateActiveModel);
         List<GetUserTemplates_Result> GetUserTemplates(UserTemplateModel userTemplateActiveModel);
+        GetUserActiveTemplate_Result GetUserActiveTemplate(UserTemplateModel userTemplateActiveModel);
+
     }
 }

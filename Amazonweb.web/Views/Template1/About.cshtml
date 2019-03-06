@@ -3,6 +3,28 @@
     ViewBag.Title = "About";
     Layout = "~/Views/Shared/_LayoutTemplate1.cshtml";
 }
+<script type="text/javascript">
 
+        function GetQueryStringParameter() {
+            var userId = getUserId();
+            GetUserAbout(userId);
+        }
+
+</script>
+<script type="text/javascript">
+        $(document).ready(function () {
+            GetQueryStringParameter();
+            // var getListAsin = GetProductAsin();
+            // GetQueryStringParameter()
+        });
+
+        jQuery(document).ready(function ($) {
+
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+</script>
 <h2>About</h2>
 

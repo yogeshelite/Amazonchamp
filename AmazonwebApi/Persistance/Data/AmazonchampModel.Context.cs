@@ -377,5 +377,14 @@ namespace AmazonwebApi.Persistance.Data
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SaveUserTemplate_Result>("SaveUserTemplate", templateIdParameter, userIdParameter, defaultParameter);
         }
+    
+        public virtual ObjectResult<GetUserActiveTemplate_Result> GetUserActiveTemplate(Nullable<System.Guid> userId)
+        {
+            var userIdParameter = userId.HasValue ?
+                new ObjectParameter("UserId", userId) :
+                new ObjectParameter("UserId", typeof(System.Guid));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetUserActiveTemplate_Result>("GetUserActiveTemplate", userIdParameter);
+        }
     }
 }

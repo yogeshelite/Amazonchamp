@@ -16,6 +16,7 @@ namespace Amazonweb.Controllers
         public ActionResult TemplateList()
         {
             var TemplateList = GetListTemplate();
+            var UserActiveTemplate = GetUserActiveTemplate();
             ViewBag.TemplateList = TemplateList;
             //ViewBag.TemplateList = new SelectList(TemplateList, "TemplateId", "TemplateName");
 
@@ -23,16 +24,17 @@ namespace Amazonweb.Controllers
             //ViewBag.JavaScriptFunction = string.Format("JsFunTemplateActivate('{0}');", 1);
             UserTemplate objUserTemplate = new UserTemplate();
             objUserTemplate.UserId = Services.GetLoginUser(this.ControllerContext.HttpContext, _JwtTokenManager).Id;
-            string userName= Services.GetLoginUser(this.ControllerContext.HttpContext, _JwtTokenManager).UserName;
-            var ActiveTemplate = GetUserTemplate(objUserTemplate);
+            string userName = Services.GetLoginUser(this.ControllerContext.HttpContext, _JwtTokenManager).UserName;
+            var ActiveTemplate = UserActiveTemplate;
             String TemplateId = "";
             if (ActiveTemplate != null)
             {
-                TemplateId = ActiveTemplate[0].TemplateId.ToString();
+                TemplateId = ActiveTemplate.ToString();
+               
             }
             ViewBag.activeTemplateId = TemplateId;
             //ViewBag.shareUrl = Constant.AppDomainName + "temp" + TemplateId + "/index/" + objUserTemplate.UserId;
-            ViewBag.shareUrl = Constant.AppDomainName + "/UrlRewrite/Index/" + userName+"/"+ objUserTemplate.UserId+"/index";
+            ViewBag.shareUrl = Constant.AppDomainName + "/UrlRewrite/Index/" + userName + "/" + objUserTemplate.UserId + "/index";
             return View(objmodel);
         }
 
@@ -97,6 +99,38 @@ namespace Amazonweb.Controllers
             return TemplateList;
 
         }
+        public string GetUserActiveTemplate()
+        {
+            UserTemplate TemplateList = new UserTemplate();
+            var token = "";
+            TemplateList.UserId = (Services.GetLoginUser(this.ControllerContext.HttpContext, _JwtTokenManager).Id);
+            var _request = _JwtTokenManager.GenerateToken(JsonConvert.SerializeObject(TemplateList));
+
+            var _response = Services.GetApiResponse(Constant.ApiGetUserActiveTemplate, "POST", _request);
+            //  if (_response == null) return View();
+            //---------- Get Api response stream
+            using (var _result = new StreamReader(_response.GetResponseStream()))
+            {
+
+                //----------REturn response
+                dynamic _data = _JwtTokenManager.DecodeToken(JsonConvert.DeserializeObject<ResponseModel>(_result.ReadToEnd()).Response);
+                var json = JsonConvert.DeserializeObject<Dictionary<string, object>>(_data);
+                var jsonData = JsonConvert.SerializeObject(_data);
+                //var jsonUniqueName = jsonData.unique_name;
+                if (json.ContainsKey("unique_name"))
+                {
+                    Dictionary<string, string> DicTemplateList = JsonConvert.DeserializeObject<Dictionary<string, string>>(json["unique_name"].ToString());
+                    token = DicTemplateList["Response"];
+                    //Dictionary<string, object> request = JsonConvert.DeserializeObject<Dictionary<string, object>>(token);
+                    // if (!login.Success) { ViewBag.Message = login.Response; return View(); }
+                    //var jsonString = new { Id = login.Id, UserName = login.Response }; \\ not cretae a correct Formate json
+                    return token.ToString();
+                }
+
+            }
+            return token;
+
+        }
         // GET: ActiveTemplate/Details/5
         public ActionResult Details(int id)
         {
@@ -109,7 +143,7 @@ namespace Amazonweb.Controllers
             return View();
         }
         [Route("Template/SetTemplateActive")]
-        public ActionResult SetTemplateActive(int TemplateId,bool IsActive )
+        public ActionResult SetTemplateActive(int TemplateId, bool IsActive)
         {
 
             Guid UserId = Services.GetLoginUser(this.ControllerContext.HttpContext, _JwtTokenManager).Id;

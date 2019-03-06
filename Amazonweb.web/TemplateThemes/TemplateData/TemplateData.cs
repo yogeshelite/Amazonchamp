@@ -10,28 +10,22 @@ using System.Data;
 using AmzonWebApi.Models;
 using System.Net;
 using System.Net.Mail;
-
-namespace Amazonweb.Controllers.Template.Template1
+namespace Amazonweb.TemplateThemes.TemplateData
 {
-    public class Template1Controller : Controller
+    public class TemplateData
     {
         JwtTokenManager _JwtTokenManager = new JwtTokenManager();
+        public string GetProductASIN(String UserId)
+        {
 
-        //[Route("u/{userName}")]
-        public ActionResult Index(string userName)
-        {
-            return View();
-        }
-        [Route("u/{userName}/GetProductASIN")]
-        public JsonResult GetProductASIN(String UserId)
-        {
+
             GetProductModel productSaveModel = new GetProductModel();
             productSaveModel.UserId = Guid.Parse(UserId);//Services.GetLoginUser(this.ControllerContext.HttpContext, _JwtTokenManager).Id
             var _request = _JwtTokenManager.GenerateToken(JsonConvert.SerializeObject(productSaveModel));
             // TODO: Add insert logic here
             var _response = Services.GetApiResponse(Constant.ApiGetProduct, "POST", _request);
             //if (_response == null) return View();
-            //----- Get Api response stream
+            //----- Get Api response stream 
             using (var _result = new StreamReader(_response.GetResponseStream()))
             {
 
@@ -51,11 +45,11 @@ namespace Amazonweb.Controllers.Template.Template1
                         var ListProducts = JsonConvert.DeserializeObject<List<GetProductModel>>(_data["Response"].ToString());
                         var jSonValue = JsonConvert.SerializeObject(ListProducts, Formatting.Indented);
                         //  var jSonValue= json(strserialize, JsonRequestBehavior.AllowGet);
-                        return Json(jSonValue, JsonRequestBehavior.AllowGet);
+                        return jSonValue;
                     }
                 }
 
-                return Json("data:Record Not Found");
+                return json("data:Record Not Found");
             }
         }
         DataSet DsGetData(string signedurl)
@@ -86,8 +80,7 @@ namespace Amazonweb.Controllers.Template.Template1
 
             return null;
         }
-        [Route("u/{userName}/JsonGetItemFromAmazon")]
-        public JsonResult JsonGetItemFromAmazon(AmazonModel amazonModel)    //TODO: primitive parameters // Fixed
+        public string JsonGetItemFromAmazon(AmazonModel amazonModel)    //TODO: primitive parameters // Fixed
         {
 
             //if () { } else { }
@@ -138,26 +131,24 @@ namespace Amazonweb.Controllers.Template.Template1
 
             //Get signed URL in a variable
             string requestUrl = helper.Sign(requestParams);
-
+            var result = "";
             //Get response from signed request
             DataSet DS = DsGetData(requestUrl);
             if (DS != null)
             {
                 //Serialize DataSet to make it suitable to send as json.
-                var result = JsonConvert.SerializeObject(DS, Formatting.Indented);
-                return Json(result, JsonRequestBehavior.AllowGet);
+                 result = JsonConvert.SerializeObject(DS, Formatting.Indented);
+                return result;
                 //You can set debug point here and inspect content of Datased(DS).
                 //it has few more tables that you might be interested in.
             }
 
 
-            return Json("Not Found", JsonRequestBehavior.AllowGet);
+            return result;
             // Example of link https://webservices.amazon.com/onca/xml?AWSAccessKeyId=AKIAIB32UVMKXN37TKIA&AssociateTag=mobilea0477c9-20&IdType=ASIN&ItemId=B00X3Q0L3O&Operation=ItemLookup&ResponseGroup=Images%2CItemAttributes%2COffers&Service=AWSECommerceService&Timestamp=2018-07-04T09%3A02%3A14.000Z&Signature=D1RRwL8jdAcQ5XhrSdYImtJvK9FwE8DSaVlKfZ68t%2Fc%3D
         }
 
-
-        [Route("u/{userName}/GetUserAbout")]
-        public JsonResult GetUserAbout(String UserId)
+        public String GetUserAbout(String UserId)  
         {
             UserAboutModel objUserAboutModel = new UserAboutModel();
             objUserAboutModel.UserId = Guid.Parse(UserId);//Services.GetLoginUser(this.ControllerContext.HttpContext, _JwtTokenManager).Id
@@ -187,35 +178,21 @@ namespace Amazonweb.Controllers.Template.Template1
                         //var listUserAbout = JsonConvert.DeserializeObject<List<UserAboutModel>>(ObjUserAbout);
                         var jSonValue1 = JsonConvert.SerializeObject(listUserAbout, Formatting.Indented);
                         //  var jSonValue= json(strserialize, JsonRequestBehavior.AllowGet);
-                        return Json(jSonValue1, JsonRequestBehavior.AllowGet);
+                        return jSonValue1;
                     }
 
                 }
 
-                return Json("data:Record Not Found");
+                return "NOT FOUND";
             }
         }
-        [Route("u/{userName}/About")]
-        public ActionResult AboutIndex(string userName)
-        {
-            return View();
-        }
-
-
-        [Route("u/{userName}/Contactus")]
-
-        public ActionResult Contactus(string UserName)
-        {
-            return View();
-        }
-        [Route("u/{userName}/SendMail")]
         public int SendMailContact(string receiverEmailId, string name, string message, string phone, string subject)
         {
             try
             {
-                var senderEmail = new MailAddress("ashishsharma@accendos.in", name);
+                var senderEmail = new MailAddress("********@gmail.com", name);
                 var receiverEmail = new MailAddress(receiverEmailId, "Receiver");
-                var password = "ashu89880";
+                var password = "*******";
                 var body = "<b>Phone N0 is</b>= " + phone + "<p> Text Message= " + message + "</p>" + "<p>Subject= " + subject + "</p>";
                 var smtp = new SmtpClient
                 {
@@ -244,18 +221,6 @@ namespace Amazonweb.Controllers.Template.Template1
                 return 0;
                 //ViewBag.Error = "Some Error";
             }
-        }
-        [Route("u/{userName}/services")]
-
-        public ActionResult services()
-        {
-            return View();
-        }
-        [Route("u/{userName}/Product")]
-
-        public ActionResult Product()
-        {
-            return View();
         }
 
     }

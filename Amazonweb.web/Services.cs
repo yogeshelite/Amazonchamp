@@ -44,6 +44,11 @@ namespace Amazonweb
             }
         }
 
+        internal static object GetCookie(object httpContext, string v)
+        {
+            throw new NotImplementedException();
+        }
+
         public static void SetCookie(HttpContextBase httpContext, string name,string value)
         {
             HttpCookie cookie = new HttpCookie(name, value);

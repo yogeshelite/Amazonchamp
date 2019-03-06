@@ -294,6 +294,23 @@ namespace AmazonwebApi.Controllers
             return jsonValue;
         }
 
+        [HttpPost]
+        [Route("api/User/GetUserActiveTemplate")]
+        public IHttpActionResult GetUserActiveTemplate(RequestModel requestModel)
+        {
+
+            var data = new JwtTokenManager().DecodeToken(requestModel.Data);
+            Dictionary<string, object> request = JsonConvert.DeserializeObject<Dictionary<string, object>>(data);
+            if (request.ContainsKey("unique_name"))
+            {
+                UserTemplateModel UserTemplateActModel = JsonConvert.DeserializeObject<UserTemplateModel>(request["unique_name"].ToString());
+                var DbResponse= userServices.GetUserActiveTemplate(UserTemplateActModel);
+                var jsonValueret = Json(new ResponseModel() { Response = new JwtTokenManager().GenerateToken(JsonConvert.SerializeObject(DbResponse)), Success = true });
+                return jsonValueret;
+            }
+            var jsonValue = Json(new ResponseModel() { Response = BadRequest().ToString(), Success = false });
+            return jsonValue;
+        }
 
 
 

@@ -3,8 +3,10 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutTemplate1.cshtml";
 }
-<script type="text/javascript">
 
+<script src="~/TemplateThemes/commantemplate/commonFile.js"></script>
+<script type="text/javascript">
+     
         function GetQueryStringParameter() {
             var userId = getUserId();
             //console.log(userId);
@@ -13,9 +15,9 @@
         $(document).ready(function () {
             GetQueryStringParameter();
         });
-
 </script>
 <div class="container">
+@ViewBag.
     <div class="row">
         <div class="col-lg-3">
             <h1 class="my-4">Shop Name</h1>

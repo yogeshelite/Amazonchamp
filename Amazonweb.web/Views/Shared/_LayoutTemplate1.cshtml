@@ -31,7 +31,8 @@
                     </li>
                     <li class="nav-item">
                         @* <a class="nav-link" href="u/virender/About">About</a>*@
-                            @Html.ActionLink("About", "AboutIndex", "Template1")
+                        @*@Html.RouteLink("About", new { action = "About", controller = "Template1", area = "About" })*@
+                            @Html.ActionLink("About", "About", "Template1")
                         <span>&nbsp;</span>
                     </li>
                     <li class="nav-item">

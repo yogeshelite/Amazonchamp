@@ -308,6 +308,9 @@
     <Compile Include="Persistance\Data\GetUserAbout_Result.cs">
       <DependentUpon>AmazonchampModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Persistance\Data\GetUserActiveTemplate_Result.cs">
+      <DependentUpon>AmazonchampModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Persistance\Data\GetuserAuthorize_Result.cs">
       <DependentUpon>AmazonchampModel.tt</DependentUpon>
     </Compile>

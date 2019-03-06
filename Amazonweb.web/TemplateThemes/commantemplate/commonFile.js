@@ -18,7 +18,7 @@ function getUserName() {
     return vars[3];
 
 }
-function getAsin() {
+function getAsin() { 
     var url = window.location.href;
     var vars = url.split('/');
     console.log(vars);
@@ -29,7 +29,7 @@ function getAsin() {
 function GetUserAbout(userIdPram) {
     var userId = "1E424621-6402-4ECC-870E-83D76BCF6739";
     // var userId = GetQueryStringParameter();
-    console.log(userIdPram + '/Template1Controller/GetProductASIN');
+   //console.log(userIdPram + '/Template1Controller/GetProductASIN');
 
     $.ajax({
         url: "/" + userIdPram + "/GetUserAbout",
@@ -40,8 +40,8 @@ function GetUserAbout(userIdPram) {
 
         },
         success: function (result) {
-            console.log('testing');
-            console.log(result);
+            //console.log('testing');
+            //console.log(result);
             result = JSON.parse(result);
             var logoImg = '<img src="http://localhost:50552/u/gurvinder/' + '../../Doc/' + result.AttachmentLogoName + '" width="50" />';
             $("#DivTitle").append(result.AboutTitle);
@@ -88,7 +88,6 @@ function GetUserAboutContact(userIdPram) {
 }
 // Send Mail
 function SendMail() {
-    GetProductAsinIndex
     var userIdPram = getUserId();
     var userId = "1E424621-6402-4ECC-870E-83D76BCF6739";
 
@@ -97,7 +96,7 @@ function SendMail() {
     var message = document.getElementById('txtMessage').value;
     var Phone = document.getElementById('txtPhone').value;
     var Subject = document.getElementById('txtSubject').value;
-    console.log(Subject, email, message, name, Phone);
+   // console.log(Subject, email, message, name, Phone);
     //console.log("/" + userIdPram + "/SendMail");
     $.ajax({
         url: "/" + userIdPram + "/SendMail",
@@ -117,11 +116,11 @@ function SendMail() {
     });
 }
 // index
-  function GetProductAsinIndex(userIdPram) {
+function GetProductAsinIndex(userIdPram) {
 
             var userId = "1E424621-6402-4ECC-870E-83D76BCF6739";
             // var userId = GetQueryStringParameter();
-            //console.log(userIdPram + '/Template1Controller/GetProductASIN');
+         // console.log(userIdPram + '/Template1Controller/GetProductASIN');
             $.ajax({
                 url:"/"+userIdPram + "/GetProductASIN",
                 type: "POST",
@@ -129,20 +128,20 @@ function SendMail() {
                     "UserId": userId
                 },
                 success: function (result) {
-                    //console.log(result);
-                    var AsinList = "";
-                    var AsinListFeature = "";
-                    var AsinListNonFeature = "";
+                   console.log(result);
+                   // var AsinList = "";
+                    //var AsinListFeature = "";
+                    //var AsinListNonFeature = "";
                     result = JSON.parse(result);
                     for (i = 0; i < result.length; i++) {
                         if (result[i].isFeatured)
                             AsinListFeature += result[i].ASIN + ",";
                         else
                             AsinListNonFeature += result[i].ASIN + ",";
-                    }
+                    } 
                     var AsinListFeature = AsinListFeature.substr(0, AsinListFeature.length - 1);
                     var AsinListNonFeature = AsinListNonFeature.substr(0, AsinListNonFeature.length - 1);
-                    GetAmazonProductIndex(AsinListFeature, true, userIdPram);
+                     GetAmazonProductIndex(AsinListFeature, true, userIdPram);
                     GetAmazonProductIndex(AsinListNonFeature, false, userIdPram);
                     GetUserAboutIndex(userIdPram);
                     // return AsinListNew;
@@ -162,9 +161,9 @@ function SendMail() {
                      "UserId": userId
                 },
                 success: function (result) {
-                    //console.log(result);
-                    if (result == "Not Found")
-                        return false;
+                    console.log(result);
+                    //if (result == "Not Found")
+                    //    return false;
                     var object = JSON.parse(result);  //Dataset
                     var title = "";//object.ItemAttributes[0].Title;
                     var item = object.Item;
@@ -341,8 +340,8 @@ function GetAmazonProductAllProducts(asin, userid, username) {
 
         },
         success: function (result) {
-            if (result == "Not Found")
-                return false;
+            //if (result == "Not Found")
+            //    return false;
             var object = JSON.parse(result);  //Dataset
             var item = object.Item;
             if (typeof object.Item === 'undefined')
@@ -428,7 +427,7 @@ function GetAmazonProductSingleProduct(asin, userid) {
 
         },
         success: function (result) {
-            if (result == "Not Found")
+            if (result === "Not Found")
                 return false;
             var object = JSON.parse(result);  //Dataset
            // console.log(result);

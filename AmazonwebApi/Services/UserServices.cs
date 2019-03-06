@@ -99,6 +99,14 @@ namespace AmazonwebApi.Services
             var _result = _instance.GetUserTemplates(UserTemplateActiveModel);
             return new ResponseModel() { Response = new JwtTokenManager().GenerateToken(JsonConvert.SerializeObject(_result)), Success = true };
         }
+
+        public ResponseModel GetUserActiveTemplate(UserTemplateModel UserTemplateActiveModel)
+        {
+            var _result = _instance.GetUserActiveTemplate(UserTemplateActiveModel);
+            return new ResponseModel() { Response = _result.TemplateId.ToString(), Success = true };
+           // return new ResponseModel() { Response = new JwtTokenManager().GenerateToken(JsonConvert.SerializeObject(_result)), Success = true };
+
+        }
     }
 
     public interface IUserServices
@@ -117,6 +125,7 @@ namespace AmazonwebApi.Services
 
         ResponseModel SaveUserTemplate(UserTemplateModel UserTemplateActiveModel);
         ResponseModel GetUserTemplates(UserTemplateModel UserTemplateActiveModel);
+        ResponseModel GetUserActiveTemplate(UserTemplateModel UserTemplateActiveModel);
 
     }
 }
