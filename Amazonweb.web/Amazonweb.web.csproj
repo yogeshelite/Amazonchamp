@@ -298,12 +298,12 @@
     <Compile Include="Controllers\SidebarPartialController.cs" />
     <Compile Include="Controllers\Templates\Template1\Template1Controller.cs" />
     <Compile Include="Controllers\Templates\Template2\Template2Controller.cs" />
-    <Compile Include="Controllers\UrlRewriteController.cs" />
     <Compile Include="Controllers\UserAboutController.cs" />
     <Compile Include="Handlers\RouteData.cs" />
     <Compile Include="Handlers\UrlHandler.cs" />
     <Compile Include="Handlers\UrlRouteData.cs" />
     <Compile Include="Handlers\UrlRouteHandler.cs" />
+    <Compile Include="Handlers\WebHandler.cs" />
     <Compile Include="Models\ActiveTemplate.cs" />
     <Compile Include="Models\CateoryModel.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
@@ -342,6 +342,7 @@
     </Compile>
     <Compile Include="Services.cs" />
     <Compile Include="SignedRequestHelper.cs" />
+    <Compile Include="TemplateThemes\TemplateData\TemplateData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -955,6 +956,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="TemplateThemes\commantemplate\commonFile.js" />
     <Content Include="TemplateThemes\Template1\.gitignore" />
     <Content Include="TemplateThemes\Template1\css\shop-homepage.css" />
     <Content Include="TemplateThemes\Template1\gulpfile.js" />
@@ -2648,6 +2650,7 @@
     <Content Include="TemplateThemes\Template2\vendor\simple-line-icons\fonts\Simple-Line-Icons.ttf" />
     <Content Include="TemplateThemes\Template2\vendor\simple-line-icons\fonts\Simple-Line-Icons.woff" />
     <Content Include="TemplateThemes\Template2\vendor\simple-line-icons\fonts\Simple-Line-Icons.woff2" />
+    <Content Include="TemplateThemes\Template1\TemplatesData.cshtml" />
     <None Include="Views\Shared\_LayoutLoginSignup.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -2725,6 +2728,10 @@
     <Content Include="Views\Template1\About.cshtml" />
     <Content Include="Views\Shared\_LayoutTemplate2.cshtml" />
     <Content Include="Views\Template2\Index.cshtml" />
+    <Content Include="Views\Template1\Contactus.cshtml" />
+    <Content Include="Views\Template1\services.cshtml" />
+    <Content Include="Views\Template1\AboutIndex.cshtml" />
+    <Content Include="Views\Template1\Product.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
