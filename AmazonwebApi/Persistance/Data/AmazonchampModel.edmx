@@ -31,6 +31,9 @@
         <Function Name="GetUserAbout" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
         </Function>
+        <Function Name="GetUserActiveTemplate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+        </Function>
         <Function Name="GetuserAuthorize" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="userId" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="userName" Type="nvarchar(max)" Mode="In" />
@@ -151,7 +154,7 @@
           <Parameter Name="UserId" Mode="In" Type="Guid" />
           </FunctionImport>
           <FunctionImport Name="GetUserTemplates" ReturnType="Collection(amazonchampModel.GetUserTemplates_Result)">
-          <Parameter Name="userId" Mode="In" Type="Guid" />
+            <Parameter Name="userId" Mode="In" Type="Guid" />
             <Parameter Name="userName" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="LoginAuthenticate" ReturnType="Collection(amazonchampModel.LoginAuthenticate_Result)">
@@ -210,6 +213,9 @@
             <Parameter Name="TemplateId" Mode="In" Type="Int64" />
             <Parameter Name="UserId" Mode="In" Type="Guid" />
             <Parameter Name="Default" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="GetUserActiveTemplate" ReturnType="Collection(amazonchampModel.GetUserActiveTemplate_Result)">
+          <Parameter Name="UserId" Mode="In" Type="Guid" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="AddCategory_Result">
@@ -348,6 +354,13 @@
         <ComplexType Name="SaveUserTemplate_Result">
           <Property Type="String" Name="Response" Nullable="false" MaxLength="33" />
           <Property Type="Boolean" Name="Success" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetUserActiveTemplate_Result">
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="Int64" Name="TemplateId" Nullable="true" />
+          <Property Type="Guid" Name="UserId" Nullable="true" />
+          <Property Type="DateTime" Name="ActivatedDate" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="IsDefault" Nullable="true" />
         </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
@@ -577,6 +590,17 @@
               <ComplexTypeMapping TypeName="amazonchampModel.SaveUserTemplate_Result">
                 <ScalarProperty Name="Response" ColumnName="Response" />
                 <ScalarProperty Name="Success" ColumnName="Success" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetUserActiveTemplate" FunctionName="amazonchampModel.Store.GetUserActiveTemplate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="amazonchampModel.GetUserActiveTemplate_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TemplateId" ColumnName="TemplateId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ActivatedDate" ColumnName="ActivatedDate" />
+                <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

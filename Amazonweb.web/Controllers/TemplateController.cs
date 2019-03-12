@@ -14,7 +14,7 @@ namespace Amazonweb.Controllers
         JwtTokenManager _JwtTokenManager = new JwtTokenManager();
         // GET: ActiveTemplate
         public ActionResult TemplateList()
-        {
+        { 
             var TemplateList = GetListTemplate();
             var UserActiveTemplate = GetUserActiveTemplate();
             ViewBag.TemplateList = TemplateList;

@@ -13,7 +13,10 @@ namespace Amazonweb
         public const string ApiCategory = "Default/GetProductCategory";
         public const string ApiSaveProduct = "User/SaveProduct";
         public const string ApiGetProduct = "User/UserProducts";
+
         public const string ApiGetTemplates = "Template/GetTemplates";
+        public const string ApiGetUserActiveTemplate = "User/GetUserActiveTemplate";
+
         public const string ApiSaveUserTemplate = "User/SaveTemplate";
         public const string ApiGetUserTemplates = "User/GetTemplates";
         public const string ApiSaveAbout = "About/SaveAbout";

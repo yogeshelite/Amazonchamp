@@ -24,7 +24,7 @@ namespace Amazonweb.web
         }
         void Application_BeginRequest(object sender, EventArgs e)
         {
-
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
     }
 }

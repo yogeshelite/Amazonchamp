@@ -15,6 +15,7 @@ namespace Amazonweb.TemplateThemes.TemplateData
     public class TemplateData
     {
         JwtTokenManager _JwtTokenManager = new JwtTokenManager();
+        
         public string GetProductASIN(String UserId)
         {
 

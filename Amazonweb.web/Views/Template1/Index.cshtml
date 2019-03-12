@@ -6,14 +6,20 @@
 
 <script src="~/TemplateThemes/commantemplate/commonFile.js"></script>
 <script type="text/javascript">
-     
+
         function GetQueryStringParameter() {
             var userId = getUserId();
             //console.log(userId);
-            GetProductAsinIndex(userId);
+            //debugger;
+            //var GetRoute = GetTemplate(userId);
+            //console.log(GetRoute);
+
+            GetProductAsinIndex(userId, GetRoute);
         }
-        $(document).ready(function () {
+    $(document).ready(function () {
+           
             GetQueryStringParameter();
+            
         });
 </script>
 <div class="container">

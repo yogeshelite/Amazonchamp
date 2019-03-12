@@ -6,22 +6,29 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
+using System.Web.Script.Serialization;
+
 
 namespace Amazonweb.web.Handlers
 {
     public sealed class UrlHandler
     {
+        static ControllerContext _ControllerContext;
+        static HttpContextBase httpContext;
+
         static JwtTokenManager _JwtTokenManager = new JwtTokenManager();
         public static UrlRouteData GetRoute(string url)
         {
             url = url ?? "/";
             url = url == "/" ? "" : url;
             url = url.ToLower();
-             
+
             UrlRouteData urlRoute = null;
-            if (!string.IsNullOrEmpty(url.Trim()) )
+            if (!string.IsNullOrEmpty(url.Trim()))
             {
                 var urlsegment = GetUrlSegments(url);
+
                 if (url.Length > 3 && url.Substring(0, 2).Equals("u/"))
                 {
                     if (urlsegment.Length >= 1)
@@ -32,13 +39,22 @@ namespace Amazonweb.web.Handlers
                             HttpCookie userName = new HttpCookie("userName", urlsegment[1]);
                             userName.Expires = DateTime.Now.AddDays(-1);
                             HttpContext.Current.Response.Cookies.Add(userName);
-                            return new UrlRouteData()
+                           // return new UrlRouteData()
+                            var urlrouteData = new UrlRouteData()
                             {
                                 Id = new Random().Next(),
                                 Controller = template.TemplateName,
                                 Action = (urlsegment.Length > 2) ? urlsegment[2] : "Index",
-                                Url = urlsegment[1]
+                                Url =  string.Format ("{0}/{1}",url,  (urlsegment.Length > 2) ? urlsegment[2] : "Index")
                             };
+                            //Services.SetCookie(_ControllerContext.HttpContext, "Template", _JwtTokenManager.GenerateToken(JsonConvert.SerializeObject(urlrouteData).ToString()));
+                            string myObjectJson = new JavaScriptSerializer().Serialize(urlrouteData);
+                            var Template = new HttpCookie("Template", myObjectJson)
+                            {
+                                Expires = DateTime.Now.AddYears(1)
+                            };
+                            HttpContext.Current.Response.Cookies.Add(Template);
+                            return urlrouteData;
                         }
                     }
                 }
@@ -75,11 +91,11 @@ namespace Amazonweb.web.Handlers
             return urlRoute;
         }
 
-      
+
 
         public static UserTemplate GetUserActiveTemplate(UserTemplate objUserTemplate)
         {
-            List< UserTemplate> TemplateList=null;
+            List<UserTemplate> TemplateList = null;
             var _request = _JwtTokenManager.GenerateToken(JsonConvert.SerializeObject(objUserTemplate));
 
             var _response = Services.GetApiResponse(Constant.ApiGetUserTemplates, "POST", _request);
@@ -107,7 +123,7 @@ namespace Amazonweb.web.Handlers
 
             }
 
-            return (TemplateList == null)?null: TemplateList.FirstOrDefault(f=>f.Active);
+            return (TemplateList == null) ? null : TemplateList.FirstOrDefault(f => f.Active);
 
         }
         private static RouteData GetControllerActionFromUrl(string url)
@@ -119,9 +135,9 @@ namespace Amazonweb.web.Handlers
                 var segments = url.Split('/');
                 if (segments.Length >= 1)
                 {
-                    route.Id = new Random().Next()  ;
+                    route.Id = new Random().Next();
                     route.Controller = segments[0];
-                    route.Action = route.Id == 0? (segments.Length >= 2? segments[1] : route.Action) : route.Action;
+                    route.Action = route.Id == 0 ? (segments.Length >= 2 ? segments[1] : route.Action) : route.Action;
                 }
             }
 
@@ -135,7 +151,7 @@ namespace Amazonweb.web.Handlers
                 var segments = url.Split('/');
                 if (segments.Length >= 1)
                 {
-                    
+
                     return segments;
                 }
             }

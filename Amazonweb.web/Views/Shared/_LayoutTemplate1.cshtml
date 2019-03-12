@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="~/TemplateThemes/Template1/vendor/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/TemplateThemes/Template1/vendor/css/shop-homepage.css" />
     @Scripts.Render("~/Template1/jquery")
-     @RenderSection("Scripts",false/*required*/)
+         @RenderSection("Scripts", false/*required*/)
+
 </head>
 <body>    
     <!-- Navigation -->
@@ -25,7 +26,6 @@
                     <li class="nav-item active">
                         @*<a class="nav-link" href="~/u/gurvinder/Index">*@
                             @Html.ActionLink("Home", "Index", "Template1")
-                     
                         <span>&nbsp;</span>
                         @*</a>*@
                     </li>
@@ -44,7 +44,7 @@
                     </li>
                     <li class="nav-item">
                         @*  <a class="nav-link" href="~/Contactus">Contact</a>*@
-                        @Html.ActionLink("Contact", "Contactus", "Template1" )
+                        @Html.ActionLink("Contactus", "Contactus", "Template1" )
                         <span>&nbsp;</span>
                     </li>
                     <li class="nav-item">
