@@ -1,4 +1,5 @@
 ﻿using Amazonweb.Models;
+using Amazonweb.web.Handlers;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,19 @@ namespace Amazonweb.Controllers
     public class TemplateController : Controller
     {
         JwtTokenManager _JwtTokenManager = new JwtTokenManager();
+        [Route("{u/{userName}/Template")]
+        public JsonResult Template(String UserId)
+        {
+
+            //var routeData = requestContext.RouteData.Values;
+            //var url = routeData["urlRouteHandler"] as string;
+            var jsn = UrlHandler.GetRoute(Request.RawUrl);
+
+            return Json(jsn);
+        }
+
+
+
         // GET: ActiveTemplate
         public ActionResult TemplateList()
         { 

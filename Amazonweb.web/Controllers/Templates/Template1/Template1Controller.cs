@@ -41,16 +41,7 @@ namespace Amazonweb.Controllers.Template.Template1
             return View();
         }
 
-        [Route("u/{userName}/Template")]
-        public JsonResult Template(String UserId)
-        {
-
-            //var routeData = requestContext.RouteData.Values;
-            //var url = routeData["urlRouteHandler"] as string;
-            var jsn = UrlHandler.GetRoute(Request.RawUrl);
-           
-            return Json(jsn);
-        }
+       
         [Route("u/{userName}/GetProductAsin")]
         public JsonResult GetProductASIN(String UserId ,string controller)
         {

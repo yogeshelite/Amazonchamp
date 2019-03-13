@@ -20,15 +20,13 @@ namespace Amazonweb.Controllers.Templates.Template2
         JwtTokenManager _JwtTokenManager = new JwtTokenManager();
         TemplateData TemplateData = new TemplateData();
 
-        //[Route("u/{userName/index}")]
+        //[Route("u/{userName}/index")]
         public ActionResult Index(string userName)
         { 
 
             return View();
         }
-
-
-
+        
         [Route("u/{userName}/GetProductAsin")]
         public JsonResult GetProductASIN(String UserId)
         {
@@ -38,13 +36,13 @@ namespace Amazonweb.Controllers.Templates.Template2
 
         }
 
-        //[Route("u/{userName}/AmazonItem")]
-        //public JsonResult JsonGetItemFromAmazon(AmazonModel amazonModel)    //TODO: primitive parameters // Fixed
-        //{
+        [Route("u/{userName}/AmazonItem")]
+        public JsonResult JsonGetItemFromAmazon(AmazonModel amazonModel)    //TODO: primitive parameters // Fixed
+        {
 
-        //    var jsOn = TemplateData.JsonGetItemFromAmazon(amazonModel);
-        //    return Json(jsOn);
-        //}
+            var jsOn = TemplateData.JsonGetItemFromAmazon(amazonModel);
+            return Json(jsOn);
+        }
 
 
 
@@ -53,7 +51,7 @@ namespace Amazonweb.Controllers.Templates.Template2
         //{
         //    return View();
         //}
-        [Route("~/u/{userName}/Contactus")]
+        [Route("u/{userName}/Contact")]
 
         public ActionResult Contactus(string UserName)
         {

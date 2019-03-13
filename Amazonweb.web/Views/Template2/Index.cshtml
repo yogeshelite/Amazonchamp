@@ -9,17 +9,18 @@
 
     function GetQueryStringParameter() {
         var userId = getUserId();
-        debugger;
-        //console.log(userId);
        
-        //var GetRoute = GetTemplate(userId);
-        //console.log(GetRoute);
+        //console.log(userId);
+        debugger;
+        var template = GetTemplate(userId);
+        
+        console.log(template);
         //var TempCtr = GetRoute[0];
         //var TempAction = GetRoute[1];
         //var TempCtr = GetRoute.TempCtr;
         //var TempAction = GetRoute.TempAction;
         //console.log(TempCtr);  console.log(GetRoute);
-        GetProductAsinIndex(userId);
+        //GetProductAsinIndex(userId,template);
     }
     $(document).ready(function () {
         GetQueryStringParameter();

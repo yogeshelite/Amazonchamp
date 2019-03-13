@@ -1,4 +1,6 @@
-﻿function getUserId() {
+﻿
+
+function getUserId() { 
     var url = window.location.href;
     var vars = url.split('/');
    // console.log(vars);
@@ -6,10 +8,8 @@
     // console.log(StrVal);
     // var url1 = '/' + vars[5] + '/' + vars[6];
     // top.location = url1;
-   
+ 
     return StrVal;
-
-
 }
 function getUserName() {
     var url = window.location.href;
@@ -54,16 +54,16 @@ function GetUserAbout(userIdPram) {
 //Get TemplateController
 function GetTemplate(userIdPram) {
     //console.log(ctr);
-    var userId = "1E424621-6402-4ECC-870E-83D76BCF6739";
+   // var userId = "1E424621-6402-4ECC-870E-83D76BCF6739";
     $.ajax({
-        url: "/" + userIdPram + "/Template",
+        url: "/" + userIdPram +"/Template",
         type: "POST",
         data: {
-            "UserId": userId
+            "UserId": userIdPram
         },
         success: function (result) {
            console.log(result);
-           var TempAction=(result.Action);
+           var TempAction=result.Action;
            var TempCtr = result.Controller;
            //console.log(result.Controller);
            console.log(TempCtr);
@@ -139,19 +139,16 @@ function SendMail() {
     });
 }
 // index
-function GetProductAsinIndex(userIdPram,templateController) {
-    debugger;
-    var userId = "1E424621-6402-4ECC-870E-83D76BCF6739";
-    //var GetRoute = GetTemplate(userId);
+function GetProductAsinIndex(userId,template) {
+   var userids = "1E424621-6402-4ECC-870E-83D76BCF6739";
     console.log(userIdPram);
-    console.log(templateController);
-    // var userId = GetQueryStringParameter();
-    console.log(userIdPram + templateController+ '/Template1Controller/GetProductASIN');
+    //console.log(templateController);
+    //console.log(userIdPram + templateController+ '/Template1Controller/GetProductASIN');
     $.ajax({
-        url: "/" + userIdPram + "/GetProductASIN",
+        url: "/" + template + "/GetProductASIN",
         type: "POST",
         data: {
-            "UserId": userId
+            "UserId": userids
         },
         success: function (result) {
             console.log(result);
