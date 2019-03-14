@@ -15,7 +15,7 @@ namespace Amazonweb.web
     {
         static JwtTokenManager _JwtTokenManager = new JwtTokenManager();
         public static void RegisterRoutes(RouteCollection routes)
-        {
+        {   
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.MapMvcAttributeRoutes();
             routes.MapRoute("IUrlRouteHandler", "{*urlRouteHandler}").RouteHandler = new UrlRouteHandler();
@@ -95,7 +95,7 @@ namespace Amazonweb.web
              */
             #endregion
         }
-
+           
 
 
         //private Guid userId()
