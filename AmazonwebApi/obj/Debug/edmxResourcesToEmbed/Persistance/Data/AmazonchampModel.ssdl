@@ -26,6 +26,9 @@
   <Function Name="GetUserAbout" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
   </Function>
+  <Function Name="GetUserActiveTemplate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+  </Function>
   <Function Name="GetuserAuthorize" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="userId" Type="uniqueidentifier" Mode="In" />
     <Parameter Name="userName" Type="nvarchar(max)" Mode="In" />

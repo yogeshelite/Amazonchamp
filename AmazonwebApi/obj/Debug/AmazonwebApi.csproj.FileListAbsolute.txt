@@ -221,6 +221,8 @@ D:\yogesh\amazonchamp\Amazonchamp\AmazonwebApi\bin\Microsoft.AI.DependencyCollec
 D:\yogesh\amazonchamp\Amazonchamp\AmazonwebApi\bin\Microsoft.AI.WindowsServer.xml
 D:\yogesh\amazonchamp\Amazonchamp\AmazonwebApi\bin\Microsoft.AI.Web.xml
 D:\yogesh\amazonchamp\Amazonchamp\AmazonwebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\yogesh\amazonchamp\Amazonchamp\AmazonwebApi\obj\Debug\AmazonwebApi.csprojAssemblyReference.cache
+D:\yogesh\amazonchamp\Amazonchamp\AmazonwebApi\obj\Debug\AmazonwebApi.csproj.CoreCompileInputs.cache
+D:\yogesh\amazonchamp\Amazonchamp\AmazonwebApi\obj\Debug\AmazonwebApi.csproj.CopyComplete
 D:\yogesh\amazonchamp\Amazonchamp\AmazonwebApi\obj\Debug\AmazonwebApi.dll
 D:\yogesh\amazonchamp\Amazonchamp\AmazonwebApi\obj\Debug\AmazonwebApi.pdb
-D:\yogesh\amazonchamp\Amazonchamp\AmazonwebApi\obj\Debug\AmazonwebApi.csprojResolveAssemblyReference.cache

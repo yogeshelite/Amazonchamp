@@ -226,5 +226,16 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUserActiveTemplate" FunctionName="amazonchampModel.Store.GetUserActiveTemplate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="amazonchampModel.GetUserActiveTemplate_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TemplateId" ColumnName="TemplateId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ActivatedDate" ColumnName="ActivatedDate" />
+          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

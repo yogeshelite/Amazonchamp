@@ -101,6 +101,9 @@
       <Parameter Name="UserId" Mode="In" Type="Guid" />
       <Parameter Name="Default" Mode="In" Type="Boolean" />
     </FunctionImport>
+    <FunctionImport Name="GetUserActiveTemplate" ReturnType="Collection(amazonchampModel.GetUserActiveTemplate_Result)">
+      <Parameter Name="UserId" Mode="In" Type="Guid" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="AddCategory_Result">
     <Property Type="String" Name="Response" Nullable="false" MaxLength="14" />
@@ -238,5 +241,12 @@
   <ComplexType Name="SaveUserTemplate_Result">
     <Property Type="String" Name="Response" Nullable="false" MaxLength="33" />
     <Property Type="Boolean" Name="Success" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetUserActiveTemplate_Result">
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="Int64" Name="TemplateId" Nullable="true" />
+    <Property Type="Guid" Name="UserId" Nullable="true" />
+    <Property Type="DateTime" Name="ActivatedDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsDefault" Nullable="true" />
   </ComplexType>
 </Schema>
