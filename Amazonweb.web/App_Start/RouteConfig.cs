@@ -16,9 +16,43 @@ namespace Amazonweb.web
         static JwtTokenManager _JwtTokenManager = new JwtTokenManager();
         public static void RegisterRoutes(RouteCollection routes)
         {
-            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            routes.MapMvcAttributeRoutes();
-            routes.MapRoute("IUrlRouteHandler", "{*urlRouteHandler}").RouteHandler = new UrlRouteHandler();
+
+            //routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            //routes.MapMvcAttributeRoutes();
+            //routes.MapRoute("IUrlRouteHandler", "{*urlRouteHandler}").RouteHandler = new UrlRouteHandler();
+            if (routes.Count > 0)
+            {
+                
+                using (routes.GetWriteLock())
+                {
+                    //get last route (default).  ** by convention, it is the standard route.
+                    var defaultRoute = routes.Last();
+                    if (defaultRoute != null)
+                    {
+                        routes.Remove(defaultRoute);
+                    }
+                    routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+                   // routes.MapMvcAttributeRoutes();
+                    routes.MapRoute("IUrlRouteHandler", "{*urlRouteHandler}").RouteHandler = new UrlRouteHandler();
+
+                    //add back default route
+                    routes.Add(defaultRoute);
+                }
+            }
+            else
+            {
+                routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+                routes.MapMvcAttributeRoutes();
+
+                routes.MapRoute("IUrlRouteHandler", "{*urlRouteHandler}").RouteHandler = new UrlRouteHandler();
+
+            }
+           
+
+
+            //routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            //routes.MapMvcAttributeRoutes();
+            //routes.MapRoute("IUrlRouteHandler", "{*urlRouteHandler}").RouteHandler = new UrlRouteHandler();
             #region Comment Code 
             /*
             #region TemplateRuting Define

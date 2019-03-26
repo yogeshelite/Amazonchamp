@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<preserve resultType="8" virtualPath="/global.asax" hash="29b357f" filehash="ffffc6dd260d59cb" flags="150000" assembly="Amazonchamp.web" type="ASP.global_asax">
-  <filedeps>
-    <filedep name="/global.asax" />
-  </filedeps>
-</preserve>

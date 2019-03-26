@@ -1,6 +1,4 @@
-﻿
-
-function getUserId() { 
+﻿function getUserId() { 
     var url = window.location.href;
     var vars = url.split('/');
    // console.log(vars);

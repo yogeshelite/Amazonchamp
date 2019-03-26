@@ -24,8 +24,11 @@ namespace Amazonweb.web
             bundles.Add(new ScriptBundle("~/Template2/jquery").Include(
                   "~/TemplateThemes/Template2/vendor/jquery/jquery.min.js",
   "~/TemplateThemes/Template2/vendor/bootstrap/js/bootstrap.bundle.min.js"
-
                      ));
+            //bundles.Add(new ScriptBundle("~/Template2/css").Include(
+            // "~/TemplateThemes/Template2/vendor/bootstrap/css/bootstrap.min.css",
+            // "~/TemplateThemes/Template2/vendor/css/shop-homepage.css"
+            //     ));
             #endregion
             // <!--Bootstrap core JavaScript -->
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(

@@ -2732,6 +2732,9 @@
     <Content Include="Views\Template1\services.cshtml" />
     <Content Include="Views\Template1\AboutIndex.cshtml" />
     <Content Include="Views\Template1\Product.cshtml" />
+    <Content Include="Views\Template2\About.cshtml" />
+    <Content Include="Views\Template2\Contactus.cshtml" />
+    <Content Include="Views\Template2\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -81,12 +81,7 @@ namespace Amazonweb.web.Handlers
                     Url = "Login"
                 };
             }
-
-
-
-
-
-
+            
 
             return urlRoute;
         }
